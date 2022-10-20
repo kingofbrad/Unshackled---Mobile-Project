@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct MoodView: View {
-    var body: some View {
-       Image(systemName: "face.smiling.fill")
-            .resizable()
-            .frame(width:100, height: 100)
-    }
+    @State private var showingSheet = false
+
+        var body: some View {
+            Button("Show Sheet") {
+                showingSheet.toggle()
+            }
+            .sheet(isPresented: $showingSheet) {
+                JournalAddEntriyView()
+            }
+        }
 }
 
 struct MoodView_Previews: PreviewProvider {

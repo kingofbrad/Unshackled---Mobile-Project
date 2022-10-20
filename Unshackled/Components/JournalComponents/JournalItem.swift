@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct JournalListView: View {
+struct JournalItem: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello There")
     }
 }
 
-struct JournalListView_Previews: PreviewProvider {
+struct JournalItem_Previews: PreviewProvider {
     static var previews: some View {
-        JournalListView()
+        JournalItem()
     }
 }

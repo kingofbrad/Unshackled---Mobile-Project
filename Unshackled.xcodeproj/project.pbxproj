@@ -15,8 +15,14 @@
 		FA83810C28F5AC1E007B34AF /* SecondWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810B28F5AC1E007B34AF /* SecondWidget.swift */; };
 		FA83810E28F5B7D2007B34AF /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810D28F5B7D2007B34AF /* JournalView.swift */; };
 		FA83811028F5BD00007B34AF /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810F28F5BD00007B34AF /* MoodView.swift */; };
-		FA83811228FEB7FA007B34AF /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811128FEB7FA007B34AF /* NotesView.swift */; };
-		FA83811428FEBFFE007B34AF /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811328FEBFFE007B34AF /* JournalListView.swift */; };
+		FA83811628FED62F007B34AF /* JournalAddEntriyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */; };
+		FA83811928FEF29C007B34AF /* MoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811828FEF29C007B34AF /* MoodController.swift */; };
+		FA83811C29005F72007B34AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA83811B29005F72007B34AF /* GoogleService-Info.plist */; };
+		FA83812A29006464007B34AF /* JournalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83812929006464007B34AF /* JournalViewModal.swift */; };
+		FA83812D29006B79007B34AF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA83812C29006B79007B34AF /* FirebaseAuth */; };
+		FA83812F29006B79007B34AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA83812E29006B79007B34AF /* FirebaseFirestore */; };
+		FA83813129006E73007B34AF /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83813029006E73007B34AF /* Journal.swift */; };
+		FA83813329018A9D007B34AF /* journalListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83813229018A9D007B34AF /* journalListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +54,12 @@
 		FA83810B28F5AC1E007B34AF /* SecondWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWidget.swift; sourceTree = "<group>"; };
 		FA83810D28F5B7D2007B34AF /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		FA83810F28F5BD00007B34AF /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
-		FA83811128FEB7FA007B34AF /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
-		FA83811328FEBFFE007B34AF /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
+		FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalAddEntriyView.swift; sourceTree = "<group>"; };
+		FA83811828FEF29C007B34AF /* MoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodController.swift; sourceTree = "<group>"; };
+		FA83811B29005F72007B34AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Unshackled/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FA83812929006464007B34AF /* JournalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModal.swift; sourceTree = "<group>"; };
+		FA83813029006E73007B34AF /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		FA83813229018A9D007B34AF /* journalListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journalListItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA83812D29006B79007B34AF /* FirebaseAuth in Frameworks */,
+				FA83812F29006B79007B34AF /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,10 +110,13 @@
 		FA8380DC28F5A76B007B34AF /* Unshackled */ = {
 			isa = PBXGroup;
 			children = (
+				FA8381282900644F007B34AF /* ViewModals */,
+				FA83811728FEF288007B34AF /* Controllers */,
 				FA83810828F5A78A007B34AF /* Views */,
 				FA83810728F5A77C007B34AF /* Components */,
 				FA8380DD28F5A76B007B34AF /* UnshackledApp.swift */,
 				FA8380E128F5A76D007B34AF /* Assets.xcassets */,
+				FA83811B29005F72007B34AF /* GoogleService-Info.plist */,
 				FA8380E328F5A76D007B34AF /* Preview Content */,
 			);
 			path = Unshackled;
@@ -118,9 +133,9 @@
 		FA83810728F5A77C007B34AF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA83811A28FF0C91007B34AF /* JournalComponents */,
 				FA83810928F5A7A0007B34AF /* Widget.swift */,
 				FA83810B28F5AC1E007B34AF /* SecondWidget.swift */,
-				FA83811328FEBFFE007B34AF /* JournalListView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -131,9 +146,34 @@
 				FA8380DF28F5A76B007B34AF /* ContentView.swift */,
 				FA83810D28F5B7D2007B34AF /* JournalView.swift */,
 				FA83810F28F5BD00007B34AF /* MoodView.swift */,
-				FA83811128FEB7FA007B34AF /* NotesView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		FA83811728FEF288007B34AF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA83811828FEF29C007B34AF /* MoodController.swift */,
+				FA83813029006E73007B34AF /* Journal.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FA83811A28FF0C91007B34AF /* JournalComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */,
+				FA83813229018A9D007B34AF /* journalListItem.swift */,
+			);
+			path = JournalComponents;
+			sourceTree = "<group>";
+		};
+		FA8381282900644F007B34AF /* ViewModals */ = {
+			isa = PBXGroup;
+			children = (
+				FA83812929006464007B34AF /* JournalViewModal.swift */,
+			);
+			path = ViewModals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +192,10 @@
 			dependencies = (
 			);
 			name = Unshackled;
+			packageProductDependencies = (
+				FA83812C29006B79007B34AF /* FirebaseAuth */,
+				FA83812E29006B79007B34AF /* FirebaseFirestore */,
+			);
 			productName = Unshackled;
 			productReference = FA8380DA28F5A76B007B34AF /* Unshackled.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +268,9 @@
 				Base,
 			);
 			mainGroup = FA8380D128F5A76B007B34AF;
+			packageReferences = (
+				FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = FA8380DB28F5A76B007B34AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -242,6 +289,7 @@
 			files = (
 				FA8380E528F5A76D007B34AF /* Preview Assets.xcassets in Resources */,
 				FA8380E228F5A76D007B34AF /* Assets.xcassets in Resources */,
+				FA83811C29005F72007B34AF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,11 +314,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA83811228FEB7FA007B34AF /* NotesView.swift in Sources */,
+				FA83812A29006464007B34AF /* JournalViewModal.swift in Sources */,
+				FA83811628FED62F007B34AF /* JournalAddEntriyView.swift in Sources */,
+				FA83813329018A9D007B34AF /* journalListItem.swift in Sources */,
 				FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */,
-				FA83811428FEBFFE007B34AF /* JournalListView.swift in Sources */,
+				FA83811928FEF29C007B34AF /* MoodController.swift in Sources */,
 				FA83811028F5BD00007B34AF /* MoodView.swift in Sources */,
 				FA83810E28F5B7D2007B34AF /* JournalView.swift in Sources */,
+				FA83813129006E73007B34AF /* Journal.swift in Sources */,
 				FA83810C28F5AC1E007B34AF /* SecondWidget.swift in Sources */,
 				FA8380DE28F5A76B007B34AF /* UnshackledApp.swift in Sources */,
 				FA83810A28F5A7A0007B34AF /* Widget.swift in Sources */,
@@ -595,6 +646,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA83812C29006B79007B34AF /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FA83812E29006B79007B34AF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA8380D228F5A76B007B34AF /* Project object */;
 }
