@@ -7,11 +7,14 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class JournalViewModel: ObservableObject {
     @Published var journalEntries = [Entry]()
     
     private var db = Firestore.firestore()
+    
+    
     
     func fetchData() {
         db.collection("journalEntries").addSnapshotListener{(querySnapshot, error) in
@@ -20,15 +23,18 @@ class JournalViewModel: ObservableObject {
                 return
             }
             
-            self.journalEntries = documents.map { (queryDocumentSnapshot) -> Entry in
-                let data = queryDocumentSnapshot.data()
-                
-                let title = data["title"] as? String ?? ""
-                let text = data["text"] as? String ?? ""
-                let mood = data["mood"] as? String ?? ""
+            self.journalEntries = documents.compactMap { (queryDocumentSnapshot) -> Entry? in
+                return try? queryDocumentSnapshot.data(as: Entry.self)
                 
                 
-                return Entry(title: title, text: text, mood: mood )
+                //                let data = queryDocumentSnapshot.data()
+                //
+                //                let title = data["title"] as? String ?? ""
+                //                let text = data["text"] as? String ?? ""
+                //                let mood = data["mood"] as? String ?? ""
+                //
+                //
+                //                return Entry(title: title, text: text, mood: mood )
                 
             }
         }

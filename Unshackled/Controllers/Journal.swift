@@ -6,15 +6,20 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 
 
-struct Entry: Identifiable {
-
-    
-    var id: String = UUID().uuidString
+struct Entry: Identifiable, Codable {
+    @DocumentID var id: String? = UUID().uuidString
     var title: String
     var text: String
     var mood: String
     var date = Date()
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case text
+        case mood
+    }
 }

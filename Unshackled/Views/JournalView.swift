@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct JournalView: View {
-    @State private var showingSheet = false
+    @State private var showNewEntryScreen = false
     @ObservedObject private var viewModel = JournalViewModel()
     
     
@@ -16,25 +16,15 @@ struct JournalView: View {
         
         NavigationView {
             VStack{
-                //New Entry BTN
-                Button{
-                    showingSheet.toggle()
-                } label: {
-                    Text("New Entry")
-                        .frame(width: 100, height: 50)
-                        .background(Color.secondary)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .sheet(isPresented: $showingSheet) {
-                    JournalAddEntriyView()
-                }
-                
                 List(viewModel.journalEntries) {entries in
-                    VStack {
-                        Text(entries.title)
-                        Text(entries.text)
+                    HStack() {
+                        VStack(alignment:.leading){
+                            Text(entries.title)
+                            Text(entries.text)
+                            
+                        }
                         Text(entries.mood)
+                        
                     }
                     
                 }
@@ -42,14 +32,23 @@ struct JournalView: View {
                 
                 
                 
-              
+                
+            }
+            .navigationTitle("Journal Entires")
+            .toolbar{
+                Button("Add"){
+                    showNewEntryScreen.toggle()
+                }
+                
+            }
+            .sheet(isPresented: $showNewEntryScreen) {
+                JournalAddEntriyView()
             }
             
         }
-        .navigationTitle("Journal Entires")
         .onAppear() {
             self.viewModel.fetchData()
-    }
+        }
     }
     
     

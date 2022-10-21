@@ -12,6 +12,11 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+            JournalView()
+                .tabItem {
+                    Label("Journal", systemImage: "book.fill")
+                }
+            
             MultiDatePicker("Dates Available", selection: $dates).fixedSize()
                 .tabItem{
                     Label("Calender", systemImage: "calendar")
@@ -19,10 +24,6 @@ struct ContentView: View {
             MoodView()
                 .tabItem {
                     Label("Mood", systemImage: "face.smiling.fill")
-                }
-            JournalView()
-                .tabItem {
-                    Label("Journal", systemImage: "book.fill")
                 }
         }
         

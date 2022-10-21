@@ -11,18 +11,23 @@
 		FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8380DF28F5A76B007B34AF /* ContentView.swift */; };
 		FA8380E228F5A76D007B34AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8380E128F5A76D007B34AF /* Assets.xcassets */; };
 		FA8380E528F5A76D007B34AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8380E428F5A76D007B34AF /* Preview Assets.xcassets */; };
-		FA83810A28F5A7A0007B34AF /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810928F5A7A0007B34AF /* Widget.swift */; };
-		FA83810C28F5AC1E007B34AF /* SecondWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810B28F5AC1E007B34AF /* SecondWidget.swift */; };
 		FA83810E28F5B7D2007B34AF /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810D28F5B7D2007B34AF /* JournalView.swift */; };
 		FA83811028F5BD00007B34AF /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810F28F5BD00007B34AF /* MoodView.swift */; };
 		FA83811628FED62F007B34AF /* JournalAddEntriyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */; };
 		FA83811928FEF29C007B34AF /* MoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811828FEF29C007B34AF /* MoodController.swift */; };
 		FA83811C29005F72007B34AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA83811B29005F72007B34AF /* GoogleService-Info.plist */; };
 		FA83812A29006464007B34AF /* JournalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83812929006464007B34AF /* JournalViewModal.swift */; };
-		FA83812D29006B79007B34AF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA83812C29006B79007B34AF /* FirebaseAuth */; };
-		FA83812F29006B79007B34AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA83812E29006B79007B34AF /* FirebaseFirestore */; };
 		FA83813129006E73007B34AF /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83813029006E73007B34AF /* Journal.swift */; };
 		FA83813329018A9D007B34AF /* journalListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83813229018A9D007B34AF /* journalListItem.swift */; };
+		FA8381472902DA16007B34AF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA8381462902DA16007B34AF /* FirebaseAuth */; };
+		FA8381492902DA16007B34AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA8381482902DA16007B34AF /* FirebaseFirestore */; };
+		FA83814B2902DA16007B34AF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA83814A2902DA16007B34AF /* FirebaseFirestoreSwift */; };
+		FA83814D2902DA16007B34AF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FA83814C2902DA16007B34AF /* FirebaseStorage */; };
+		FA83814F2902EC37007B34AF /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83814E2902EC37007B34AF /* EntryViewModel.swift */; };
+		FA8381512903020D007B34AF /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8381502903020D007B34AF /* JournalDetailView.swift */; };
+		FA83815329030657007B34AF /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815229030657007B34AF /* LoginScreenView.swift */; };
+		FA83815529030837007B34AF /* SplachScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815429030837007B34AF /* SplachScreenView.swift */; };
+		FA83815729031F84007B34AF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815629031F84007B34AF /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +55,6 @@
 		FA8380E428F5A76D007B34AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA8380EA28F5A76E007B34AF /* UnshackledTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnshackledTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8380F428F5A76E007B34AF /* UnshackledUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnshackledUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA83810928F5A7A0007B34AF /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
-		FA83810B28F5AC1E007B34AF /* SecondWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWidget.swift; sourceTree = "<group>"; };
 		FA83810D28F5B7D2007B34AF /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		FA83810F28F5BD00007B34AF /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalAddEntriyView.swift; sourceTree = "<group>"; };
@@ -60,6 +63,11 @@
 		FA83812929006464007B34AF /* JournalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModal.swift; sourceTree = "<group>"; };
 		FA83813029006E73007B34AF /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		FA83813229018A9D007B34AF /* journalListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journalListItem.swift; sourceTree = "<group>"; };
+		FA83814E2902EC37007B34AF /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
+		FA8381502903020D007B34AF /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
+		FA83815229030657007B34AF /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
+		FA83815429030837007B34AF /* SplachScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplachScreenView.swift; sourceTree = "<group>"; };
+		FA83815629031F84007B34AF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +75,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA83812D29006B79007B34AF /* FirebaseAuth in Frameworks */,
-				FA83812F29006B79007B34AF /* FirebaseFirestore in Frameworks */,
+				FA8381472902DA16007B34AF /* FirebaseAuth in Frameworks */,
+				FA83814D2902DA16007B34AF /* FirebaseStorage in Frameworks */,
+				FA8381492902DA16007B34AF /* FirebaseFirestore in Frameworks */,
+				FA83814B2902DA16007B34AF /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				FA83811A28FF0C91007B34AF /* JournalComponents */,
-				FA83810928F5A7A0007B34AF /* Widget.swift */,
-				FA83810B28F5AC1E007B34AF /* SecondWidget.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -146,6 +154,10 @@
 				FA8380DF28F5A76B007B34AF /* ContentView.swift */,
 				FA83810D28F5B7D2007B34AF /* JournalView.swift */,
 				FA83810F28F5BD00007B34AF /* MoodView.swift */,
+				FA8381502903020D007B34AF /* JournalDetailView.swift */,
+				FA83815229030657007B34AF /* LoginScreenView.swift */,
+				FA83815429030837007B34AF /* SplachScreenView.swift */,
+				FA83815629031F84007B34AF /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				FA83812929006464007B34AF /* JournalViewModal.swift */,
+				FA83814E2902EC37007B34AF /* EntryViewModel.swift */,
 			);
 			path = ViewModals;
 			sourceTree = "<group>";
@@ -193,8 +206,10 @@
 			);
 			name = Unshackled;
 			packageProductDependencies = (
-				FA83812C29006B79007B34AF /* FirebaseAuth */,
-				FA83812E29006B79007B34AF /* FirebaseFirestore */,
+				FA8381462902DA16007B34AF /* FirebaseAuth */,
+				FA8381482902DA16007B34AF /* FirebaseFirestore */,
+				FA83814A2902DA16007B34AF /* FirebaseFirestoreSwift */,
+				FA83814C2902DA16007B34AF /* FirebaseStorage */,
 			);
 			productName = Unshackled;
 			productReference = FA8380DA28F5A76B007B34AF /* Unshackled.app */;
@@ -269,7 +284,7 @@
 			);
 			mainGroup = FA8380D128F5A76B007B34AF;
 			packageReferences = (
-				FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FA8381452902DA16007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = FA8380DB28F5A76B007B34AF /* Products */;
 			projectDirPath = "";
@@ -315,16 +330,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA83812A29006464007B34AF /* JournalViewModal.swift in Sources */,
+				FA83814F2902EC37007B34AF /* EntryViewModel.swift in Sources */,
 				FA83811628FED62F007B34AF /* JournalAddEntriyView.swift in Sources */,
 				FA83813329018A9D007B34AF /* journalListItem.swift in Sources */,
+				FA83815329030657007B34AF /* LoginScreenView.swift in Sources */,
+				FA83815529030837007B34AF /* SplachScreenView.swift in Sources */,
+				FA8381512903020D007B34AF /* JournalDetailView.swift in Sources */,
 				FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */,
 				FA83811928FEF29C007B34AF /* MoodController.swift in Sources */,
 				FA83811028F5BD00007B34AF /* MoodView.swift in Sources */,
+				FA83815729031F84007B34AF /* SignUpView.swift in Sources */,
 				FA83810E28F5B7D2007B34AF /* JournalView.swift in Sources */,
 				FA83813129006E73007B34AF /* Journal.swift in Sources */,
-				FA83810C28F5AC1E007B34AF /* SecondWidget.swift in Sources */,
 				FA8380DE28F5A76B007B34AF /* UnshackledApp.swift in Sources */,
-				FA83810A28F5A7A0007B34AF /* Widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +501,8 @@
 				DEVELOPMENT_TEAM = 488D86WNW2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Unshackled;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -495,6 +515,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Bradlee.King.Unshackled;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -512,6 +535,8 @@
 				DEVELOPMENT_TEAM = 488D86WNW2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Unshackled;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -524,6 +549,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Bradlee.King.Unshackled;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,9 +676,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		FA8381452902DA16007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 9.0.0;
@@ -659,15 +687,25 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FA83812C29006B79007B34AF /* FirebaseAuth */ = {
+		FA8381462902DA16007B34AF /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = FA8381452902DA16007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		FA83812E29006B79007B34AF /* FirebaseFirestore */ = {
+		FA8381482902DA16007B34AF /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA83812B29006B79007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = FA8381452902DA16007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		FA83814A2902DA16007B34AF /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA8381452902DA16007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		FA83814C2902DA16007B34AF /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA8381452902DA16007B34AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,146 +1,42 @@
-//
-//  JournalAddEntriyView.swift
-//  Unshackled
-//
-//  Created by Bradlee King on 18/10/2022.
-//
 
 import SwiftUI
 
-
-
-let dateFormatter = DateFormatter()
-
-struct JournalItem: Codable, Hashable, Identifiable {
-    let id: Int
-    let text: String
-    let title: String
-    var date = Date()
-    var dateText: String {
-        dateFormatter.dateFormat = "MMM d yyyy, h:mm a"
-        return dateFormatter.string(from: date)
-    }
-}
-
 struct JournalAddEntriyView: View {
-    
-    
+    @StateObject var viewModel = EntryViewModel()
     @Environment(\.dismiss) var dismiss
     
-    @State var journalTitle: String = ""
-    @State var journalText: String = ""
-    @State var itemToDelete: JournalItem?
-    @State var showAlert = false
-    
     var body: some View {
-            VStack{
-                Text("How are you feeling today??")
-                    .bold()
-                    .font(.title3)
-                titleEntry
-                textEntry
-                HStack{
-                    savebtn
-                    cancelbtn
+        NavigationView {
+            Form{
+                Section(header: Text("Journal Title"))
+                {TextField("Title", text: $viewModel.entry.title)}
+                
+                Section(header: Text("Text"))
+                {TextEditor(text: $viewModel.entry.text)
+                    
                 }
             }
-            .padding()
-        
-    }
-        
-    var titleEntry: some View {
-        VStack(alignment: .leading){
-            Text("Enter a title")
-                .foregroundColor(Color.gray)
-                .bold()
-                .font(.title3)
-                .padding(6)
-            TextField("Place your title here...", text: $journalTitle)
-                .background(Color.white)
-                .foregroundColor(Color(.red))
-                .font(.title2)
-                .padding(6)
-                
-                
-            
+            .navigationBarTitle("New Entry", displayMode: .inline)
+            .navigationBarItems(
+                leading: Button("Cancel") {handleCancelTapped()} ,
+                trailing: Button("Save") {handleSaveTapped()}
+                    .disabled(!viewModel.modified)
+            )
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10).stroke(.gray.opacity(0.2), lineWidth: 4))
-        .padding(.bottom, 20)
-        
-        
-        
-        
-        
-    }
-    var textEntry: some View {
-        VStack(alignment: .leading) {
-            Text("Journal Entry")
-                .bold()
-                .font(.title2)
-            TextEditor(text: $journalText)
-                .frame(height:250)
-                .background(Color("Turquoise"))
-                .overlay(
-                RoundedRectangle(cornerRadius: 10).stroke(.gray.opacity(0.2), lineWidth: 4))
-        }
-            
-    }
-    var savebtn: some View {
-        Button{
-            AddEntry()
-            dismiss()
-        } label: {
-            Text("Add Entry ")
-        }
-    }
-    var cancelbtn: some View {
-        Button{
-            showAlert = true
-        } label: {
-            Text("Cancel")
-        }
-        .alert("Are you sure", isPresented: $showAlert) {
-            Button("Yes") {
-                dismiss()
-            }
-            Button("Return") {
-               
-            }
-                
-            
-        }
-    }
-            
-        
-       func AddEntry() {
-           dismiss()
-        }
-        
-        
     }
     
-
-
+    func handleCancelTapped() {
+        dismiss()
+    }
+    
+    func handleSaveTapped() {
+        viewModel.save()
+        dismiss()
+    }
+    
+}
 struct JournalAddEntriyView_Previews: PreviewProvider {
     static var previews: some View {
         JournalAddEntriyView()
     }
 }
-
-
-struct Moodpicker: View {
-    @State private var selectedMood = ""
-    
-    
-    var body: some View{
-        Picker("Strength", selection: $selectedMood) {
-            ForEach(Moods, id: \.self) {
-                Text($0)
-            }
-        }
-    }
-}
-
-
-
