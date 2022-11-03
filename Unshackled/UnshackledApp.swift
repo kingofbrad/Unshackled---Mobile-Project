@@ -6,29 +6,23 @@
 //
 
 import SwiftUI
-import FirebaseCore
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-
-  func application(_ application: UIApplication,
-
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
-    FirebaseApp.configure()
-
-    return true
-
-  }
-
-}
 
 
 @main
 struct UnshackledApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    let dateHolder = DateHolder()
+    @State private var userloggedin = true
+    
     var body: some Scene {
         WindowGroup {
-            SplachScreenView()
+            if (userloggedin) {
+                ContentView()
+                    .environmentObject(dateHolder)
+            } else {
+                LoginScreenView(didCompleteLoginProgress: {})
+            }
+        
         }
     }
 }

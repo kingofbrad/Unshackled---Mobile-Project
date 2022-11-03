@@ -11,12 +11,8 @@ struct MoodView: View {
     @State private var showingSheet = false
 
         var body: some View {
-            Button("Show Sheet") {
-                showingSheet.toggle()
-            }
-            .sheet(isPresented: $showingSheet) {
-                JournalAddEntriyView()
-            }
+           Text("Mood View")
+            
         }
 }
 

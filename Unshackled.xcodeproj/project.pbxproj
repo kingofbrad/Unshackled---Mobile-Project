@@ -11,23 +11,30 @@
 		FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8380DF28F5A76B007B34AF /* ContentView.swift */; };
 		FA8380E228F5A76D007B34AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8380E128F5A76D007B34AF /* Assets.xcassets */; };
 		FA8380E528F5A76D007B34AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8380E428F5A76D007B34AF /* Preview Assets.xcassets */; };
-		FA83810E28F5B7D2007B34AF /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810D28F5B7D2007B34AF /* JournalView.swift */; };
 		FA83811028F5BD00007B34AF /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83810F28F5BD00007B34AF /* MoodView.swift */; };
-		FA83811628FED62F007B34AF /* JournalAddEntriyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */; };
 		FA83811928FEF29C007B34AF /* MoodController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83811828FEF29C007B34AF /* MoodController.swift */; };
 		FA83811C29005F72007B34AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA83811B29005F72007B34AF /* GoogleService-Info.plist */; };
-		FA83812A29006464007B34AF /* JournalViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83812929006464007B34AF /* JournalViewModal.swift */; };
-		FA83813129006E73007B34AF /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83813029006E73007B34AF /* Journal.swift */; };
-		FA83813329018A9D007B34AF /* journalListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83813229018A9D007B34AF /* journalListItem.swift */; };
 		FA8381472902DA16007B34AF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA8381462902DA16007B34AF /* FirebaseAuth */; };
 		FA8381492902DA16007B34AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA8381482902DA16007B34AF /* FirebaseFirestore */; };
 		FA83814B2902DA16007B34AF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA83814A2902DA16007B34AF /* FirebaseFirestoreSwift */; };
 		FA83814D2902DA16007B34AF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FA83814C2902DA16007B34AF /* FirebaseStorage */; };
-		FA83814F2902EC37007B34AF /* EntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83814E2902EC37007B34AF /* EntryViewModel.swift */; };
-		FA8381512903020D007B34AF /* JournalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8381502903020D007B34AF /* JournalDetailView.swift */; };
 		FA83815329030657007B34AF /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815229030657007B34AF /* LoginScreenView.swift */; };
-		FA83815529030837007B34AF /* SplachScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815429030837007B34AF /* SplachScreenView.swift */; };
-		FA83815729031F84007B34AF /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815629031F84007B34AF /* SignUpView.swift */; };
+		FA83815E290493A6007B34AF /* CheckBoxBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815D290493A6007B34AF /* CheckBoxBtn.swift */; };
+		FA8381612904A883007B34AF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8381602904A883007B34AF /* ProfileView.swift */; };
+		FAACB61D2909A00D00CFBCA6 /* FaceIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAACB61C2909A00D00CFBCA6 /* FaceIDViewModel.swift */; };
+		FAD96714291011BD0072C300 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD96713291011BD0072C300 /* FirebaseManager.swift */; };
+		FAD967182910178C0072C300 /* MainMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD967172910178C0072C300 /* MainMessagesView.swift */; };
+		FAD9671B291019450072C300 /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9671A291019450072C300 /* CalenderView.swift */; };
+		FAD9671D291019C40072C300 /* DateHolderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9671C291019C40072C300 /* DateHolderController.swift */; };
+		FAD9671F29101A190072C300 /* DateScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9671E29101A190072C300 /* DateScrollerView.swift */; };
+		FAD9672229101D5B0072C300 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9672129101D5B0072C300 /* CalendarHelper.swift */; };
+		FAD96724291026640072C300 /* CalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD96723291026640072C300 /* CalendarCellView.swift */; };
+		FAD96726291027810072C300 /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD96725291027810072C300 /* MonthStruct.swift */; };
+		FAD96729291147030072C300 /* MainJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD96728291147030072C300 /* MainJournalView.swift */; };
+		FAD9672B291148FE0072C300 /* Add:EditJournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9672A291148FE0072C300 /* Add:EditJournalView.swift */; };
+		FAD9672D29115B320072C300 /* JournalCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9672C29115B320072C300 /* JournalCellView.swift */; };
+		FAD9672F291190840072C300 /* ChatUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9672E291190840072C300 /* ChatUserModel.swift */; };
+		FAD96732291192E90072C300 /* NewMessageContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD96731291192E90072C300 /* NewMessageContactView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,19 +62,27 @@
 		FA8380E428F5A76D007B34AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA8380EA28F5A76E007B34AF /* UnshackledTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnshackledTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8380F428F5A76E007B34AF /* UnshackledUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnshackledUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA83810D28F5B7D2007B34AF /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
 		FA83810F28F5BD00007B34AF /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
-		FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalAddEntriyView.swift; sourceTree = "<group>"; };
 		FA83811828FEF29C007B34AF /* MoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodController.swift; sourceTree = "<group>"; };
 		FA83811B29005F72007B34AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Unshackled/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		FA83812929006464007B34AF /* JournalViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModal.swift; sourceTree = "<group>"; };
-		FA83813029006E73007B34AF /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
-		FA83813229018A9D007B34AF /* journalListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = journalListItem.swift; sourceTree = "<group>"; };
-		FA83814E2902EC37007B34AF /* EntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewModel.swift; sourceTree = "<group>"; };
-		FA8381502903020D007B34AF /* JournalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalDetailView.swift; sourceTree = "<group>"; };
 		FA83815229030657007B34AF /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
-		FA83815429030837007B34AF /* SplachScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplachScreenView.swift; sourceTree = "<group>"; };
-		FA83815629031F84007B34AF /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		FA83815D290493A6007B34AF /* CheckBoxBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxBtn.swift; sourceTree = "<group>"; };
+		FA8381602904A883007B34AF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FAACB61B29098D0D00CFBCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FAACB61C2909A00D00CFBCA6 /* FaceIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDViewModel.swift; sourceTree = "<group>"; };
+		FAD96713291011BD0072C300 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		FAD967172910178C0072C300 /* MainMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessagesView.swift; sourceTree = "<group>"; };
+		FAD9671A291019450072C300 /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
+		FAD9671C291019C40072C300 /* DateHolderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHolderController.swift; sourceTree = "<group>"; };
+		FAD9671E29101A190072C300 /* DateScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateScrollerView.swift; sourceTree = "<group>"; };
+		FAD9672129101D5B0072C300 /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		FAD96723291026640072C300 /* CalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellView.swift; sourceTree = "<group>"; };
+		FAD96725291027810072C300 /* MonthStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
+		FAD96728291147030072C300 /* MainJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainJournalView.swift; sourceTree = "<group>"; };
+		FAD9672A291148FE0072C300 /* Add:EditJournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Add:EditJournalView.swift"; sourceTree = "<group>"; };
+		FAD9672C29115B320072C300 /* JournalCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCellView.swift; sourceTree = "<group>"; };
+		FAD9672E291190840072C300 /* ChatUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserModel.swift; sourceTree = "<group>"; };
+		FAD96731291192E90072C300 /* NewMessageContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageContactView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +135,7 @@
 		FA8380DC28F5A76B007B34AF /* Unshackled */ = {
 			isa = PBXGroup;
 			children = (
+				FAACB61B29098D0D00CFBCA6 /* Info.plist */,
 				FA8381282900644F007B34AF /* ViewModals */,
 				FA83811728FEF288007B34AF /* Controllers */,
 				FA83810828F5A78A007B34AF /* Views */,
@@ -143,7 +159,7 @@
 		FA83810728F5A77C007B34AF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				FA83811A28FF0C91007B34AF /* JournalComponents */,
+				FA83815B2904937D007B34AF /* UIComponents */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -151,13 +167,13 @@
 		FA83810828F5A78A007B34AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FAD96730291192D60072C300 /* MessagesViews */,
+				FAD96727291146ED0072C300 /* JournalViews */,
+				FAD96719291019340072C300 /* CalenderViews */,
+				FA83815F2904A874007B34AF /* Profile */,
+				FA83815829043776007B34AF /* AuthViews */,
 				FA8380DF28F5A76B007B34AF /* ContentView.swift */,
-				FA83810D28F5B7D2007B34AF /* JournalView.swift */,
 				FA83810F28F5BD00007B34AF /* MoodView.swift */,
-				FA8381502903020D007B34AF /* JournalDetailView.swift */,
-				FA83815229030657007B34AF /* LoginScreenView.swift */,
-				FA83815429030837007B34AF /* SplachScreenView.swift */,
-				FA83815629031F84007B34AF /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,28 +181,91 @@
 		FA83811728FEF288007B34AF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAD9672029101D3F0072C300 /* Calendar */,
 				FA83811828FEF29C007B34AF /* MoodController.swift */,
-				FA83813029006E73007B34AF /* Journal.swift */,
+				FAD96713291011BD0072C300 /* FirebaseManager.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		FA83811A28FF0C91007B34AF /* JournalComponents */ = {
-			isa = PBXGroup;
-			children = (
-				FA83811528FED62F007B34AF /* JournalAddEntriyView.swift */,
-				FA83813229018A9D007B34AF /* journalListItem.swift */,
-			);
-			path = JournalComponents;
 			sourceTree = "<group>";
 		};
 		FA8381282900644F007B34AF /* ViewModals */ = {
 			isa = PBXGroup;
 			children = (
-				FA83812929006464007B34AF /* JournalViewModal.swift */,
-				FA83814E2902EC37007B34AF /* EntryViewModel.swift */,
+				FAACB61C2909A00D00CFBCA6 /* FaceIDViewModel.swift */,
+				FAD9672E291190840072C300 /* ChatUserModel.swift */,
 			);
 			path = ViewModals;
+			sourceTree = "<group>";
+		};
+		FA83815829043776007B34AF /* AuthViews */ = {
+			isa = PBXGroup;
+			children = (
+				FA83815229030657007B34AF /* LoginScreenView.swift */,
+			);
+			path = AuthViews;
+			sourceTree = "<group>";
+		};
+		FA83815B2904937D007B34AF /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				FA83815C2904938D007B34AF /* Buttons */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		FA83815C2904938D007B34AF /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				FA83815D290493A6007B34AF /* CheckBoxBtn.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		FA83815F2904A874007B34AF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FA8381602904A883007B34AF /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		FAD96719291019340072C300 /* CalenderViews */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9671A291019450072C300 /* CalenderView.swift */,
+				FAD9671E29101A190072C300 /* DateScrollerView.swift */,
+				FAD96723291026640072C300 /* CalendarCellView.swift */,
+			);
+			path = CalenderViews;
+			sourceTree = "<group>";
+		};
+		FAD9672029101D3F0072C300 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9671C291019C40072C300 /* DateHolderController.swift */,
+				FAD9672129101D5B0072C300 /* CalendarHelper.swift */,
+				FAD96725291027810072C300 /* MonthStruct.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		FAD96727291146ED0072C300 /* JournalViews */ = {
+			isa = PBXGroup;
+			children = (
+				FAD96728291147030072C300 /* MainJournalView.swift */,
+				FAD9672A291148FE0072C300 /* Add:EditJournalView.swift */,
+				FAD9672C29115B320072C300 /* JournalCellView.swift */,
+			);
+			path = JournalViews;
+			sourceTree = "<group>";
+		};
+		FAD96730291192D60072C300 /* MessagesViews */ = {
+			isa = PBXGroup;
+			children = (
+				FAD96731291192E90072C300 /* NewMessageContactView.swift */,
+				FAD967172910178C0072C300 /* MainMessagesView.swift */,
+			);
+			path = MessagesViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,19 +408,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA83812A29006464007B34AF /* JournalViewModal.swift in Sources */,
-				FA83814F2902EC37007B34AF /* EntryViewModel.swift in Sources */,
-				FA83811628FED62F007B34AF /* JournalAddEntriyView.swift in Sources */,
-				FA83813329018A9D007B34AF /* journalListItem.swift in Sources */,
+				FAD9671D291019C40072C300 /* DateHolderController.swift in Sources */,
+				FAACB61D2909A00D00CFBCA6 /* FaceIDViewModel.swift in Sources */,
+				FAD9671F29101A190072C300 /* DateScrollerView.swift in Sources */,
+				FAD9672B291148FE0072C300 /* Add:EditJournalView.swift in Sources */,
 				FA83815329030657007B34AF /* LoginScreenView.swift in Sources */,
-				FA83815529030837007B34AF /* SplachScreenView.swift in Sources */,
-				FA8381512903020D007B34AF /* JournalDetailView.swift in Sources */,
+				FAD9671B291019450072C300 /* CalenderView.swift in Sources */,
+				FA83815E290493A6007B34AF /* CheckBoxBtn.swift in Sources */,
 				FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */,
+				FAD96724291026640072C300 /* CalendarCellView.swift in Sources */,
+				FA8381612904A883007B34AF /* ProfileView.swift in Sources */,
+				FAD96732291192E90072C300 /* NewMessageContactView.swift in Sources */,
+				FAD96729291147030072C300 /* MainJournalView.swift in Sources */,
+				FAD967182910178C0072C300 /* MainMessagesView.swift in Sources */,
 				FA83811928FEF29C007B34AF /* MoodController.swift in Sources */,
+				FAD96726291027810072C300 /* MonthStruct.swift in Sources */,
+				FAD9672229101D5B0072C300 /* CalendarHelper.swift in Sources */,
 				FA83811028F5BD00007B34AF /* MoodView.swift in Sources */,
-				FA83815729031F84007B34AF /* SignUpView.swift in Sources */,
-				FA83810E28F5B7D2007B34AF /* JournalView.swift in Sources */,
-				FA83813129006E73007B34AF /* Journal.swift in Sources */,
+				FAD96714291011BD0072C300 /* FirebaseManager.swift in Sources */,
+				FAD9672D29115B320072C300 /* JournalCellView.swift in Sources */,
+				FAD9672F291190840072C300 /* ChatUserModel.swift in Sources */,
 				FA8380DE28F5A76B007B34AF /* UnshackledApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,8 +587,10 @@
 				DEVELOPMENT_TEAM = 488D86WNW2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Unshackled/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Unshackled;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -535,8 +623,10 @@
 				DEVELOPMENT_TEAM = 488D86WNW2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Unshackled/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Unshackled;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -644,7 +734,7 @@
 				FA8380FD28F5A76E007B34AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA8380FE28F5A76E007B34AF /* Build configuration list for PBXNativeTarget "Unshackled" */ = {
 			isa = XCConfigurationList;
@@ -653,7 +743,7 @@
 				FA83810028F5A76E007B34AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA83810128F5A76E007B34AF /* Build configuration list for PBXNativeTarget "UnshackledTests" */ = {
 			isa = XCConfigurationList;
@@ -662,7 +752,7 @@
 				FA83810328F5A76E007B34AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FA83810428F5A76E007B34AF /* Build configuration list for PBXNativeTarget "UnshackledUITests" */ = {
 			isa = XCConfigurationList;
@@ -671,7 +761,7 @@
 				FA83810628F5A76E007B34AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
