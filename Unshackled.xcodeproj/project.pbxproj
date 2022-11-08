@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2CE06B29181E2C00C4D5CD /* ChatUserMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CE06A29181E2C00C4D5CD /* ChatUserMessagesView.swift */; };
 		FA8380DE28F5A76B007B34AF /* UnshackledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8380DD28F5A76B007B34AF /* UnshackledApp.swift */; };
 		FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8380DF28F5A76B007B34AF /* ContentView.swift */; };
 		FA8380E228F5A76D007B34AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8380E128F5A76D007B34AF /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA2CE06A29181E2C00C4D5CD /* ChatUserMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserMessagesView.swift; sourceTree = "<group>"; };
 		FA8380DA28F5A76B007B34AF /* Unshackled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unshackled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8380DD28F5A76B007B34AF /* UnshackledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnshackledApp.swift; sourceTree = "<group>"; };
 		FA8380DF28F5A76B007B34AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				FAD96731291192E90072C300 /* NewMessageContactView.swift */,
 				FAD967172910178C0072C300 /* MainMessagesView.swift */,
+				FA2CE06A29181E2C00C4D5CD /* ChatUserMessagesView.swift */,
 			);
 			path = MessagesViews;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				FA83815E290493A6007B34AF /* CheckBoxBtn.swift in Sources */,
 				FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */,
 				FAD96724291026640072C300 /* CalendarCellView.swift in Sources */,
+				FA2CE06B29181E2C00C4D5CD /* ChatUserMessagesView.swift in Sources */,
 				FA8381612904A883007B34AF /* ProfileView.swift in Sources */,
 				FAD96732291192E90072C300 /* NewMessageContactView.swift in Sources */,
 				FAD96729291147030072C300 /* MainJournalView.swift in Sources */,

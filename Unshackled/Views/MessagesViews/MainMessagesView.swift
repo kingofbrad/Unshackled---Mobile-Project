@@ -185,21 +185,7 @@ struct MainMessagesView: View {
     }
 }
 
-struct ChatLogView: View {
-    
-    let chatUser: ChatUser?
-    
-    
-    
-    var body: some View {
-        ScrollView {
-            ForEach(0..<10) { msg in
-                Text("Placeholder")
-                
-            }
-        }.navigationTitle(chatUser?.email ?? "")
-    }
-}
+
 
 struct MainMessagesView_Previews: PreviewProvider {
     static var previews: some View {
