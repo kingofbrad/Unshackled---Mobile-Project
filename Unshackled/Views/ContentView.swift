@@ -33,7 +33,7 @@ struct ContentView: View {
 //            }
             
             TabView {
-                MainJournalView(vm: JournalViewModel())
+                MainJournalView(jvm: JournalViewModel())
                     .tabItem{
                         Label("Journals", systemImage: "book.fill")
                     }

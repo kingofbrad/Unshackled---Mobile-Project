@@ -6,56 +6,98 @@
 //
 
 import SwiftUI
+import Firebase
 
-struct Journal {
-    let title: String
-    let text: String
-    let mood: String
+struct FirebaseConstantsJournal {
+    static let fromId = "fromId"
+    static let title = "title"
+    static let text = "text"
+    static let mood = "mood"
+    static let timestamp = "timestamp"
 }
 
-
-
+struct Journal: Identifiable {
+    var id: String {documentId}
+    
+    
+    
+    let documentId: String
+    let fromId, text, title, mood: String
+    init(documentId: String, data: [String: Any]) {
+        self.documentId = documentId
+        self.fromId = data[FirebaseConstantsJournal.fromId] as? String ?? ""
+        self.title = data[FirebaseConstantsJournal.title] as? String ?? ""
+        self.text = data[FirebaseConstantsJournal.text] as? String ?? ""
+        self.mood = data[FirebaseConstantsJournal.mood] as? String ?? ""
+    }
+}
 
 class JournalViewModel: ObservableObject {
     
     @Published var errorMessage = ""
-    @Published var journal: Journal?
+    @Published var journal = [Journal]()
     
-    
+    @Published var NoEntryfound = true
     
     init() {
         fetchUserJournal()
     }
     
-    func fetchUserJournal() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+    private func fetchUserJournal() {
+        guard let fromUid = FirebaseManager.shared.auth.currentUser?.uid else {
             self.errorMessage = "Could not find User uid"
             return
         }
+        FirebaseManager.shared.firestore
+            .collection("journals")
+            .document(fromUid)
+            .collection("entry")
+            .order(by: "timestamp")
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error {
+                    self.errorMessage = "failed to fetch user journal \(error)"
+                    print("failed to fetch user journal \(error)")
+                    self.NoEntryfound = true
+                    return
+                }
+                
+                querySnapshot?.documentChanges.forEach({ change in
+                    if change.type == .added {
+                        let data = change.document.data()
+                        self.journal.append(.init(documentId: change.document.documentID, data: data))
+                    }
+                })
+                
+                self.errorMessage = "Successfully got the Data"
+                print(self.errorMessage)
+                self.NoEntryfound = false
+                
+            }
+    }
+    
+    func handleAddEntry(text: String, title: String, mood: String) {
+        guard let fromId = FirebaseManager.shared.auth.currentUser?.uid else {return}
         
+        let document = FirebaseManager.shared.firestore
+            .collection("journals")
+            .document(fromId)
+            .collection("entry")
+            .document()
         
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("entry").document().getDocument { snapshot, error in
+        let journalData = [
+            FirebaseConstantsJournal.fromId: fromId, FirebaseConstantsJournal.text: text, FirebaseConstantsJournal.title: title,
+            FirebaseConstantsJournal.mood: mood,
+            "timestamp": Timestamp()
+        ] as [String: Any]
+        
+        document.setData(journalData) {error in
             if let error = error {
-                self.errorMessage = "Failed to fetch user entry \(error)"
-                print("Failed to fetch user Entry \(error)")
+                print(error)
+                self.errorMessage = "Failed to save entry into Firestore: \(error)"
                 return
             }
-            
-            
-            guard let data = snapshot?.data() else
-            {
-                self.errorMessage = "No Data Found"
-                return
-            }
-            let entryID = data["id"] as? String ?? ""
-            let title = data["title"] as? String ?? ""
-            let text = data["text"] as? String ?? ""
-            let mood = data["mood"] as? String ?? ""
-            
-            self.journal = Journal(title: title, text: text, mood: mood)
-            
-            self.errorMessage = "Successfully got the Data"
-            
+            self.errorMessage = "Successfully saved current user adding Journal entry"
+            print("Successfully saved current user adding Journal Entry")
         }
     }
 }
@@ -63,21 +105,27 @@ class JournalViewModel: ObservableObject {
 
 struct MainJournalView: View {
     @State private var showingSheet = false
-    @ObservedObject var vm: JournalViewModel
+    @ObservedObject var jvm: JournalViewModel
+    
+    
+   
     
     var body: some View {
         NavigationStack{
-            Text(vm.errorMessage)
+            Text(jvm.errorMessage)
             
             ScrollView {
-                ForEach(0..<10) { entry in
-                    JournalCellView(vm: JournalViewModel())
+                VStack {
+                    ForEach(jvm.journal) {entry in
+                        journalDataView(entry: entry, jvm: JournalViewModel())
+                    }
                 }
             }
             .navigationTitle("Journal")
             .toolbar{EntryButton}
         }
     }
+    
     
     
     var EntryButton: some View {
@@ -88,7 +136,7 @@ struct MainJournalView: View {
             Image(systemName: "plus")
         }
         .sheet(isPresented: $showingSheet ) {
-            Add_EditJournalView(vm: JournalViewModel())
+            Add_EditJournalView(jvm: JournalViewModel())
         }
     }
     
@@ -96,8 +144,33 @@ struct MainJournalView: View {
     
 }
 
+struct journalDataView: View {
+    let entry: Journal
+    @ObservedObject var jvm: JournalViewModel
+    var body: some View {
+        VStack {
+            if entry.fromId == FirebaseManager.shared.auth.currentUser?.uid {
+                if jvm.NoEntryfound == false {
+                    VStack {
+                        Text(entry.title)
+                        Text(entry.text)
+                    }
+                } else {
+                    VStack{
+                        Text("Please add a new entry")
+                    }
+                }
+                
+            }
+           
+        }
+    }
+}
+
 struct MainJournalView_Previews: PreviewProvider {
     static var previews: some View {
-        MainJournalView(vm: JournalViewModel())
+        NavigationView {
+            MainJournalView(jvm: JournalViewModel())
+        }
     }
 }

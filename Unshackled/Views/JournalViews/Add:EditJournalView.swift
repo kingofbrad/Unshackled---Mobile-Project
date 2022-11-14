@@ -9,8 +9,7 @@ import SwiftUI
 
 struct Add_EditJournalView: View {
    
-    @ObservedObject var vm: JournalViewModel
-    @State var errorMessage = ""
+    @ObservedObject var jvm: JournalViewModel
     @State private var title = ""
     @State private var text = ""
     @State private var mood = ""
@@ -26,32 +25,19 @@ struct Add_EditJournalView: View {
                 .padding(12)
             
             Button{
-                storeUserEntry()
+                jvm.handleAddEntry(text: text, title: title, mood: mood)
             } label: {
                 Text("Add Entry")
             }
             
-            Text(errorMessage)
+            Text(jvm.errorMessage)
                 .foregroundColor(.red)
-        }
-    }
-    func storeUserEntry() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-       
-        let userData = ["title": self.title, "text": self.text, "mood": self.mood]
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("entry").document().setData(userData) {err in
-            if let err = err {
-                self.errorMessage = "cannot store user entry \(err)"
-                print(err)
-                return
-            }
-            self.errorMessage = "successfully stored data \(userData)"
         }
     }
 }
 
 struct Add_EditJournalView_Previews: PreviewProvider {
     static var previews: some View {
-        Add_EditJournalView(vm: JournalViewModel())
+        Add_EditJournalView(jvm: JournalViewModel())
     }
 }
