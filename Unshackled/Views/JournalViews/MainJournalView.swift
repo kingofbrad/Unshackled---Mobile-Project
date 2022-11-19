@@ -155,6 +155,10 @@ struct journalDataView: View {
                         Text(entry.title)
                         Text(entry.text)
                     }
+                    .padding(.horizontal)
+                    .frame(width:400, height: 300)
+                    .background(Color.red)
+                    
                 } else {
                     VStack{
                         Text("Please add a new entry")
