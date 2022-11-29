@@ -1,63 +1,45 @@
-//
-//  SignUpView.swift
-//  Unshackled
-//
-//  Created by Bradlee King on 15/11/2022.
-//
-
 import SwiftUI
+
+
+
 
 struct SignUpView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var isSecured: Bool = true
+    @State var nextStepview = false
+    
+    @StateObject private var keyboardHanlder = KeyboardHandler()
     
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 73)
-                .foregroundColor(Color("lightpink"))
-                .frame(width: 600, height: 400)
-                .offset(x: -85, y: -410)
-            
-            VStack{
-                VStack(alignment: .leading){
-                    HStack {
-                        Text("Let's create an account for you")
-                            .font(.custom("Vidaloka-Regular", size: 40))
-                            .frame(width: 270)
-                            .offset(x: -40, y: 50)
-                    }
+        NavigationView {
+            VStack(spacing: 15){
+                HStack {
+                    Text("Let's create an account for you")
+                        .font(.custom("Vidaloka-Regular", size: 40))
+                        .frame(width: 270)
+                        .padding(.top, -30)
                     Spacer()
                 }
-                checkProgressView
+                .padding(.horizontal, 30)
+                .padding(.vertical, 40)
+                CheckListProgressView(isChecked: true, isChecked1: false, isChecked2: false, isChecked3: false)
                 inputfieldsView
                 signUpButtonView
-               
+            }
+            .frame(maxHeight: .infinity)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
+            .background {
+                RoundedRectangle(cornerRadius: 73)
+                    .foregroundColor(Color("lightpink"))
+                    .frame(width: 600, height: 400)
+                    .offset(x: -85, y: -410)
             }
         }
     }
     
-    var checkProgressView: some View {
-        HStack(spacing: -0.4){
-            Circle()
-                .foregroundColor(Color("lightTurquoise"))
-                .frame(width: 40)
-            Rectangle()
-                .foregroundColor(Color("lightpink"))
-                .frame(width: 50, height: 10)
-            Circle()
-                .foregroundColor(Color("lightpink"))
-                .frame(width: 40)
-            Rectangle()
-                .foregroundColor(Color("lightpink"))
-                .frame(width: 50, height: 10)
-            Circle()
-                .foregroundColor(Color("lightpink"))
-                .frame(width: 40)
-        }
-        .padding(.bottom, 30)
-    }
+    
     
     
     var inputfieldsView: some View {
@@ -74,6 +56,7 @@ struct SignUpView: View {
                     .frame(width: 340, height: 50)
                     .background(Color(.init(white: 0.9, alpha: 0.3)))
                     .cornerRadius(10)
+                    .font(.custom("Poppins-Medium", size: 20))
             }
             VStack(alignment:.leading) {
                 Text("Password")
@@ -92,6 +75,7 @@ struct SignUpView: View {
                                     .frame(width: 340, height: 50)
                                     .background(Color(.init(white: 0.9, alpha: 0.3)))
                                     .cornerRadius(10)
+                                    .font(.custom("Poppins-Medium", size: 20))
                             } else {
                                 TextField("", text: $password)
                                     .foregroundColor(.black)
@@ -99,6 +83,7 @@ struct SignUpView: View {
                                     .frame(width: 340, height: 50)
                                     .background(Color(.init(white: 0.9, alpha: 0.3)))
                                     .cornerRadius(10)
+                                    .font(.custom("Poppins-Medium", size: 20))
                             }
                         }
                         
@@ -119,24 +104,19 @@ struct SignUpView: View {
     }
     
     var signUpButtonView: some View {
-        VStack(spacing: 20) {
-            Button {
-                print("Sign Up")
-            } label: {
-                Text("Sign Up")
-                    .frame(width: 340, height: 50)
-                    .background(Color("lightTurquoise"))
-                    .cornerRadius(10)
-                    .foregroundColor(.black)
-                    .font(.custom("Poppins-Bold", size: 17))
+        VStack(spacing: 17) {
+            NavigationLink(destination: SignUpStage2View(), isActive: $nextStepview) {
+                CustomSignUpButton(text: "Sign Up") {
+                    print("Created a new account")
+                }
             }
             
             Button {
-                print("Sign up with google")
+                nextStepview = true
             } label: {
-                Label("SignUpwithGoogle", image: "GoogleIcon")
+                Label("SignUp with Google", image: "GoogleIcon")
                     .frame(width: 340, height: 50)
-                    .background(Color(.init(white: 0.9, alpha: 0.3)))
+                    .background(Color(.init(white: 0.9, alpha: 0.6)))
                     .cornerRadius(10)
                     .font(.custom("Poppins-Bold", size: 17))
                     .foregroundColor(.black)
@@ -147,7 +127,7 @@ struct SignUpView: View {
             } label: {
                 Label("Sign Up with Apple", systemImage: "apple.logo")
                     .frame(width: 340, height: 50)
-                    .background(Color(.init(white: 0.9, alpha: 0.3)))
+                    .background(Color(.init(white: 0.9, alpha: 0.6)))
                     .cornerRadius(10)
                     .font(.custom("Poppins-Bold", size: 17))
                     .foregroundColor(.black)
@@ -165,17 +145,34 @@ struct SignUpView: View {
                 .frame(width: 340, height: 50)
                 .cornerRadius(10)
                 .font(.custom("Poppins-Bold", size: 17))
-                
-                    
             }
-
-
+            
+            
+        }
+        .padding(.bottom, 5)
+    }
+    
+    //    Function Section
+    private func createNewAccount() {
+        FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
+            if let err = err {
+                print("Couldn't Create User \(err)")
+                return
+            }
+            print("Successfully created user")
+            nextStepview = true
         }
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignUpView( nextStepview: false)
     }
+    
 }
+
+
+
+
+

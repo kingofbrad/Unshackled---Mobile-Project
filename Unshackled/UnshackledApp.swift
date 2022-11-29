@@ -22,7 +22,8 @@ struct UnshackledApp: App {
             } else {
                 LoginScreenView(didCompleteLoginProgress: {})
             }
-        
+//            SignUpView(nextStepview: false)
         }
+       
     }
 }
