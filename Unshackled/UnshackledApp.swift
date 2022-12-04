@@ -16,14 +16,16 @@ struct UnshackledApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if (userloggedin) {
-                ContentView()
-                    .environmentObject(dateHolder)
-            } else {
-                LoginScreenView(didCompleteLoginProgress: {})
-            }
+//            if (userloggedin) {
+//                ContentView()
+//                    .environmentObject(dateHolder)
+//            } else {
+//                LoginScreenView(didCompleteLoginProgress: {})
+//            }
 //            SignUpView(nextStepview: false)
+            SplashScreenView()
         }
+        
        
     }
 }

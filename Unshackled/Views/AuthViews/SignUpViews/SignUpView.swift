@@ -9,7 +9,7 @@ struct SignUpView: View {
     @State private var isSecured: Bool = true
     @State var nextStepview = false
     
-    @StateObject private var keyboardHanlder = KeyboardHandler()
+    
     
     
     var body: some View {
@@ -152,7 +152,6 @@ struct SignUpView: View {
         .padding(.bottom, 5)
     }
     
-    //    Function Section
     private func createNewAccount() {
         FirebaseManager.shared.auth.createUser(withEmail: email, password: password) { result, err in
             if let err = err {
@@ -163,6 +162,7 @@ struct SignUpView: View {
             nextStepview = true
         }
     }
+    
 }
 
 struct SignUpView_Previews: PreviewProvider {

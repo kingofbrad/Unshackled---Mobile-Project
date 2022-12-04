@@ -9,55 +9,53 @@ import SwiftUI
 import Combine
 
 struct SignUpStage2View: View {
-    @State private var name = ""
-    @State private var CheckBoxToggle = false
-    @State private var createAccountProgress = true
-    @State private var showErrorMessage = false
-    @State private var dobDay = ""
-    @State private var dobMonth = ""
-    @State private var dobYear = ""
-    
-    @State private var location = ""
+    @State private var SignUpVM = SignUpViewModal()
     
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
-    
+    let countries = ["UK","USA","Japan","South Korea","Canada"]
+    @State var selectedCountry = "UK"
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 15){
-                HStack {
-                    Text("Let's create an account for you")
-                        .font(.custom("Vidaloka-Regular", size: 40))
-                        .frame(width: 270)
-                        .padding(.top, -30)
-                    Spacer()
-                }
-                .padding(.horizontal, 30)
-                .padding(.vertical, 45)
-
-                Spacer()
-                
-                if createAccountProgress {
-                    createAccountStage2View
-                        .transition(.moveAndFade)
-                } else {
-                    createAccountStage1View
-                }
-                
-                
-            }
-            .frame(maxHeight: .infinity)
-            .ignoresSafeArea(.keyboard, edges: .bottom)
-            .background {
-                RoundedRectangle(cornerRadius: 73)
-                    .foregroundColor(Color("lightpink"))
-                    .frame(width: 600, height: 400)
-                    .offset(x: -85, y: -410)
+            if !SignUpVM.finalViewToggle {
+                Mainbody
+            } else {
+                SignUpFinalScreenView()
             }
         }
         .toolbar(.hidden)
         
+    }
+    
+    var Mainbody: some View {
+        VStack(spacing: 15){
+            HStack {
+                Text("Let's create an account for you")
+                    .font(.custom("Vidaloka-Regular", size: 40))
+                    .frame(width: 270)
+                    .padding(.top, -30)
+                Spacer()
+            }
+            .padding(.horizontal, 30)
+            .padding(.vertical, 45)
+
+            Spacer()
+            
+            if SignUpVM.createAccountProgress {
+                createAccountStage2View
+            } else {
+                createAccountStage1View
+            }
+        }
+        .frame(maxHeight: .infinity)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .background {
+            RoundedRectangle(cornerRadius: 73)
+                .foregroundColor(Color("lightpink"))
+                .frame(width: 600, height: 400)
+                .offset(x: -85, y: -410)
+        }
     }
     
     var createAccountStage1View: some View {
@@ -71,11 +69,14 @@ struct SignUpStage2View: View {
     }
     
     var createAccountStage2View: some View {
-        VStack{
+        VStack(spacing: 23){
             CheckListProgressView(isChecked: false, isChecked1: false, isChecked2: true, isChecked3: false)
             VStack{
                 mobileNumberView
+                VerificationNumberView
+                termsAndConditionsView
                 nextButtonViewStage2
+                Spacer()
             }
             
             
@@ -90,13 +91,13 @@ struct SignUpStage2View: View {
     var nextButtonViewStage1: some View {
         HStack {
             CustomButtonPrev(text: "Prev") {
-                createAccountProgress = false
+                SignUpVM.createAccountProgress = false
             }
             CustomButtonNext(text: "Next") {
-                if CheckBoxToggle{
-                    createAccountProgress = true
+                if SignUpVM.CheckBoxToggle{
+                    SignUpVM.createAccountProgress = true
                 } else {
-                    showErrorMessage = true
+                    SignUpVM.showErrorMessage = true
                 }
                 
             }
@@ -111,15 +112,15 @@ struct SignUpStage2View: View {
     var nextButtonViewStage2: some View {
         HStack {
             CustomButtonPrev(text: "Prev") {
-                createAccountProgress = false
+                SignUpVM.createAccountProgress = false
             }
             CustomButtonNext(text: "Next") {
-                print("Next")
+                storeUserInformation()
+                SignUpVM.finalViewToggle.toggle()
             }
             
             
         }
-        .padding(.vertical, 20)
     }
     
     
@@ -132,7 +133,7 @@ struct SignUpStage2View: View {
                     .fontWeight(.heavy)
                     .padding(.horizontal, -5)
                     .padding(.bottom, -4)
-                TextField("", text: $name)
+                TextField("", text: $SignUpVM.name)
                     .foregroundColor(.black)
                     .padding(.horizontal)
                     .frame(width: 340, height: 50)
@@ -149,7 +150,7 @@ struct SignUpStage2View: View {
             .frame(width: 350, height:100)
             .padding(.horizontal, 20)
             .padding(.vertical, 0)
-            if showErrorMessage {
+            if SignUpVM.showErrorMessage {
                 Text("Please agree to continue")
                     .foregroundColor(.red)
                     .font(.custom("Poppins-Bold", size: 14))
@@ -169,19 +170,19 @@ struct SignUpStage2View: View {
                 .padding(.horizontal, -5)
                 .padding(.bottom, -4)
             HStack(spacing: 15) {
-                TextField("", text: $dobDay)
+                TextField("", text: $SignUpVM.dobDay)
                     .foregroundColor(.black)
                     .padding(.horizontal)
                     .frame(width: 80, height: 50)
                     .background(Color(.init(white: 0.9, alpha: 0.3)))
                     .cornerRadius(10)
-                TextField("", text: $dobMonth)
+                TextField("", text: $SignUpVM.dobMonth)
                     .foregroundColor(.black)
                     .padding(.horizontal)
                     .frame(width: 150, height: 50)
                     .background(Color(.init(white: 0.9, alpha: 0.3)))
                     .cornerRadius(10)
-                TextField("", text: $dobYear)
+                TextField("", text: $SignUpVM.dobYear)
                     .foregroundColor(.black)
                     .padding(.horizontal)
                     .frame(width: 80, height: 50)
@@ -199,7 +200,7 @@ struct SignUpStage2View: View {
                 .padding(.horizontal, -5)
                 .padding(.bottom, -4)
             HStack {
-                TextField("", text: $location)
+                TextField("", text: $SignUpVM.location)
                     .foregroundColor(.black)
                     .padding(.horizontal)
                     .frame(width: 300, height: 50)
@@ -220,18 +221,65 @@ struct SignUpStage2View: View {
 //    Stage 2 Views
     
     var mobileNumberView: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Mobile Number")
                 .font(.custom("Poppins-SemiBold", size: 20))
                 .fontWeight(.heavy)
                 .padding(.horizontal, -5)
                 .padding(.bottom, -4)
             HStack {
-                
+                CustomButtonPhoneNumber(image: "UKFlag") {
+                    print("Phone Number Clicked")
+                }
+                TextField("", text: $SignUpVM.mobileNumber)
+                    .foregroundColor(.black)
+                    .padding(.horizontal)
+                    .frame(width: 260, height: 50)
+                    .background(Color(.init(white: 0.9, alpha: 0.3)))
+                    .cornerRadius(10)
+            }
+        }
+    }
+    
+    var VerificationNumberView: some View {
+        VStack {
+            VStack(alignment: .leading) {
+                Text("Verification Code")
+                    .font(.custom("Poppins-SemiBold", size: 20))
+                    .fontWeight(.heavy)
+                    .padding(.horizontal, -5)
+                    .padding(.bottom, -4)
+                TextField("", text: $SignUpVM.verificationCode)
+                    .foregroundColor(.black)
+                    .padding(.horizontal)
+                    .frame(width: 340, height: 50)
+                    .background(Color(.init(white: 0.9, alpha: 0.3)))
+                    .cornerRadius(10)
+            }
+            HStack {
+                Text("Not recieved a code?")
+                Button {
+                    print("resend code button pressed?")
+                } label: {
+                    Text("Resend")
+                        .foregroundColor(Color("DarkTurquoise"))
+                }
 
             }
+            .padding(.vertical, 15)
+            .font(.custom("Poppins-Medium", size: 13))
             
         }
+    }
+    
+    var termsAndConditionsView: some View {
+        HStack(spacing: 25) {
+            Text("I give permission for the app or support survivors to call me. Your number will not be seen by other users.")
+                .font(.custom("Poppins-Medium", size: 14))
+            CheckBox1
+        }.frame(width: 350, height:100)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 0)
     }
     
     
@@ -240,14 +288,41 @@ struct SignUpStage2View: View {
 //    Components for ViewPage
     var CheckBox: some View {
         Button {
-            CheckBoxToggle.toggle()
+            SignUpVM.CheckBoxToggle.toggle()
         } label: {
             Image(systemName: "checkmark.square.fill")
                 .resizable()
                 .frame(width: 44, height: 44)
-                .foregroundColor(Color(!CheckBoxToggle ? "Gray" : "DarkTurquoise"))
+                .foregroundColor(Color(!SignUpVM.CheckBoxToggle ? "Gray" : "DarkTurquoise"))
         }
         
+    }
+    var CheckBox1: some View {
+        Button {
+            SignUpVM.CheckBoxToggle1.toggle()
+        } label: {
+            Image(systemName: "checkmark.square.fill")
+                .resizable()
+                .frame(width: 44, height: 44)
+                .foregroundColor(Color(!SignUpVM.CheckBoxToggle1 ? "Gray" : "DarkTurquoise"))
+        }
+        
+    }
+    
+    private func storeUserInformation() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        let userData = ["email": SignUpVM.email, "uid": uid]
+        FirebaseManager.shared.firestore.collection("users")
+            .document(uid).setData(userData) { err in
+                if let err = err {
+                    print(err)
+                    SignUpVM.errorMessage = "\(err)"
+                    return
+                }
+                print("Success")
+                
+                
+            }
     }
 }
 
@@ -257,11 +332,4 @@ struct SignUpStage2View_Previews: PreviewProvider {
     }
 }
 
-extension AnyTransition {
-    static var moveAndFade: AnyTransition {
-        .asymmetric(
-            insertion: .move(edge: .trailing).combined(with: .opacity),
-            removal: .scale.combined(with: .opacity)
-        )
-    }
-}
+

@@ -19,6 +19,9 @@
 		FA752913292951BB00F96C5D /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA75290F292951BA00F96C5D /* Poppins-Bold.ttf */; };
 		FA752914292951BB00F96C5D /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA752910292951BA00F96C5D /* Poppins-Regular.ttf */; };
 		FA752915292951BB00F96C5D /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA752911292951BA00F96C5D /* Poppins-SemiBold.ttf */; };
+		FA7BBAD72936AFF100FEACAF /* SignUpFinalScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BBAD62936AFF100FEACAF /* SignUpFinalScreen.swift */; };
+		FA7BBAD9293BD10D00FEACAF /* SignUpViewModals.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BBAD8293BD10D00FEACAF /* SignUpViewModals.swift */; };
+		FA7BBADB293BEF5E00FEACAF /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7BBADA293BEF5E00FEACAF /* SplashScreenView.swift */; };
 		FA8380DE28F5A76B007B34AF /* UnshackledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8380DD28F5A76B007B34AF /* UnshackledApp.swift */; };
 		FA8380E028F5A76B007B34AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8380DF28F5A76B007B34AF /* ContentView.swift */; };
 		FA8380E228F5A76D007B34AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8380E128F5A76D007B34AF /* Assets.xcassets */; };
@@ -80,6 +83,9 @@
 		FA75290F292951BA00F96C5D /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		FA752910292951BA00F96C5D /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		FA752911292951BA00F96C5D /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		FA7BBAD62936AFF100FEACAF /* SignUpFinalScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinalScreen.swift; sourceTree = "<group>"; };
+		FA7BBAD8293BD10D00FEACAF /* SignUpViewModals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModals.swift; sourceTree = "<group>"; };
+		FA7BBADA293BEF5E00FEACAF /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		FA8380DA28F5A76B007B34AF /* Unshackled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unshackled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8380DD28F5A76B007B34AF /* UnshackledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnshackledApp.swift; sourceTree = "<group>"; };
 		FA8380DF28F5A76B007B34AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 				FA83815829043776007B34AF /* AuthViews */,
 				FA8380DF28F5A76B007B34AF /* ContentView.swift */,
 				FA83810F28F5BD00007B34AF /* MoodView.swift */,
+				FA7BBADA293BEF5E00FEACAF /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,6 +266,7 @@
 			children = (
 				FAACB61C2909A00D00CFBCA6 /* FaceIDViewModel.swift */,
 				FAD9672E291190840072C300 /* ChatUserModel.swift */,
+				FA7BBAD8293BD10D00FEACAF /* SignUpViewModals.swift */,
 			);
 			path = ViewModals;
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 			children = (
 				FA5B55542923E92C00FD0876 /* SignUpView.swift */,
 				FAF31459292974DF00E1E211 /* SignUpStage2View.swift */,
+				FA7BBAD62936AFF100FEACAF /* SignUpFinalScreen.swift */,
 			);
 			path = SignUpViews;
 			sourceTree = "<group>";
@@ -515,10 +524,13 @@
 				FAD9672229101D5B0072C300 /* CalendarHelper.swift in Sources */,
 				FA83811028F5BD00007B34AF /* MoodView.swift in Sources */,
 				FAD96714291011BD0072C300 /* FirebaseManager.swift in Sources */,
+				FA7BBADB293BEF5E00FEACAF /* SplashScreenView.swift in Sources */,
 				FAD9672D29115B320072C300 /* JournalCellView.swift in Sources */,
+				FA7BBAD72936AFF100FEACAF /* SignUpFinalScreen.swift in Sources */,
 				FAD9672F291190840072C300 /* ChatUserModel.swift in Sources */,
 				FA0F4C162934FF3B00191ACE /* KeyboardHandlerController.swift in Sources */,
 				FA8380DE28F5A76B007B34AF /* UnshackledApp.swift in Sources */,
+				FA7BBAD9293BD10D00FEACAF /* SignUpViewModals.swift in Sources */,
 				FA0F4C1A2935975E00191ACE /* NetworkCallsManager.swift in Sources */,
 				FA0F4C182935873000191ACE /* CountryDialCodeManager.swift in Sources */,
 			);

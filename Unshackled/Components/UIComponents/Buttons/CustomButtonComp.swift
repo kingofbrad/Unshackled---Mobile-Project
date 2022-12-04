@@ -22,6 +22,9 @@ struct CustomButtonComp: View {
                 CustomSignUpButton(text:"Sign Up") {
                     print("Custom Sign Up Button")
                 }
+                CustomButtonPhoneNumber(image: "UKFlag") {
+                    print("Phone Number Button Pressed")
+                }
             }
         }
     }
@@ -65,6 +68,25 @@ struct CustomButtonNext: View {
             .background(Color("DarkTurquoise"))
             .cornerRadius(15)
             .font(.custom("Poppins-Bold", size: 18))
+        }
+    }
+}
+
+struct CustomButtonPhoneNumber: View {
+    var image: String
+    var clicked: (() -> Void)
+    
+    var body: some View {
+        Button(action: clicked) {
+            HStack {
+                Image(image)
+                    .resizable()
+                    .frame(width: 38, height: 30)
+            }
+            .frame(width: 50, height: 50)
+            .padding(.horizontal, 10)
+            .background(Color(.init(white: 0.9, alpha: 0.3)))
+            .cornerRadius(15)
         }
     }
 }
