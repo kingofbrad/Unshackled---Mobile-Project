@@ -101,7 +101,7 @@ struct LoginScreenView: View {
                 return
             }
             self.errorMessage = "Successfully created User: \(result?.user.uid ?? "")"
-            storeUserInformation()
+            
         }
         
     }
@@ -119,21 +119,7 @@ struct LoginScreenView: View {
         }
     }
     
-    private func storeUserInformation() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let userData = ["email": self.email, "uid": uid, "firstname": self.firstname, "lastname": self.lastname]
-        FirebaseManager.shared.firestore.collection("users")
-            .document(uid).setData(userData) { err in
-                if let err = err {
-                    print(err)
-                    self.errorMessage = "\(err)"
-                    return
-                }
-                print("Success")
-                
-                self.didCompleteLoginProgress()
-            }
-    }
+   
 }
 struct LoginScreenView_Previews: PreviewProvider {
     static var previews: some View {
