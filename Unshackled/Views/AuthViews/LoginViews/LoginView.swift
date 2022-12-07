@@ -1,37 +1,35 @@
+//
+//  LoginView.swift
+//  Unshackled
+//
+//  Created by Bradlee King on 04/12/2022.
+//
+
 import SwiftUI
 
-
-
-
-struct SignUpView: View {
-    @State private var SignUpVM = SignUpViewModal()
-    @State private var email = ""
-    @State private var password = ""
-    @State private var isSecured: Bool = true
-    @State var nextStepview = false
+struct LoginView: View {
+    @State private var VM = SignUpViewModal()
+    @State private var toSignUpView: Bool = false
     
-    @State private var toLoginView: Bool = false
-    
-  
     
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 15){
+            VStack(spacing: 10){
                 HStack {
-                    Text("Let's create an account for you")
+                    Text("Hello again, let’s sign you in")
                         .font(.custom("Vidaloka-Regular", size: 40))
                         .frame(width: 270)
-                        .padding(.top, -30)
+                        .padding(.top, -70)
                     Spacer()
                 }
                 .padding(.horizontal, 30)
                 .padding(.vertical, 40)
-                CheckListProgressView(isChecked: true, isChecked1: false, isChecked2: false, isChecked3: false)
                 inputfieldsView
-                signUpButtonView
+                LoginButtonView
+                
+                Text(VM.errorMessage)
             }
-            
             .frame(maxHeight: .infinity)
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .background {
@@ -52,7 +50,7 @@ struct SignUpView: View {
                     .fontWeight(.heavy)
                     .padding(.horizontal, -5)
                     .padding(.bottom, -4)
-                TextField("", text: $SignUpVM.email)
+                TextField("", text: $VM.email)
                     .foregroundColor(.black)
                     .padding(.horizontal)
                     .frame(width: 340, height: 50)
@@ -70,8 +68,8 @@ struct SignUpView: View {
                 HStack {
                     ZStack(alignment: .trailing) {
                         Group {
-                            if isSecured {
-                                SecureField("", text: $password)
+                            if VM.isSecured {
+                                SecureField("", text: $VM.password)
                                     .foregroundColor(.black)
                                     .padding(.horizontal)
                                     .frame(width: 340, height: 50)
@@ -79,7 +77,7 @@ struct SignUpView: View {
                                     .cornerRadius(10)
                                     .font(.custom("Poppins-Medium", size: 20))
                             } else {
-                                TextField("", text: $password)
+                                TextField("", text: $VM.password)
                                     .foregroundColor(.black)
                                     .padding(.horizontal)
                                     .frame(width: 340, height: 50)
@@ -91,9 +89,9 @@ struct SignUpView: View {
                         
                         
                         Button(action: {
-                            isSecured.toggle()
+                            VM.isSecured.toggle()
                         }) {
-                            Image(systemName: self.isSecured ? "eye.slash" : "eye")
+                            Image(systemName: self.VM.isSecured ? "eye.slash" : "eye")
                                 .accentColor(.gray)
                         }
                         .padding(.trailing, 10)
@@ -104,19 +102,20 @@ struct SignUpView: View {
         }
         .padding(.bottom, 60)
     }
-    
-    var signUpButtonView: some View {
+    var LoginButtonView: some View {
         VStack(spacing: 17) {
-            NavigationLink(destination: SignUpStage2View(), isActive: $nextStepview) {
-                CustomSignUpButton(text: "Sign Up") {
-                    createNewAccount()
+            NavigationLink(destination: HomeView(), isActive: $VM.isUserLoggedIn) {
+                CustomSignUpButton(text: "Login") {
+                    loginAccount()
                 }
             }
             
+            
+            
             Button {
-                nextStepview = true
+                print("Login With Google")
             } label: {
-                Label("SignUp with Google", image: "GoogleIcon")
+                Label("Login with Google", image: "GoogleIcon")
                     .frame(width: 340, height: 50)
                     .background(Color(.init(white: 0.9, alpha: 0.6)))
                     .cornerRadius(10)
@@ -125,18 +124,18 @@ struct SignUpView: View {
             }
             
             Button {
-                print("Sign up with Apple")
+                print("Login with Apple")
             } label: {
-                Label("Sign Up with Apple", systemImage: "apple.logo")
+                Label("Login with Apple", systemImage: "apple.logo")
                     .frame(width: 340, height: 50)
                     .background(Color(.init(white: 0.9, alpha: 0.6)))
                     .cornerRadius(10)
                     .font(.custom("Poppins-Bold", size: 17))
                     .foregroundColor(.black)
             }
-            NavigationLink(destination: LoginView(), isActive: $toLoginView) {
+            NavigationLink(destination: SignUpView(), isActive: $toSignUpView) {
                 Button {
-                   toLoginView = true
+                   toSignUpView = true
                 } label: {
                     HStack{
                         Text("Already a member?")
@@ -150,36 +149,28 @@ struct SignUpView: View {
                     .font(.custom("Poppins-Bold", size: 17))
                 }
             }
-            
-            
-            
         }
         .padding(.bottom, 5)
     }
     
-    private func createNewAccount() {
-        FirebaseManager.shared.auth.createUser(withEmail: SignUpVM.email, password: password) { result, err in
+    
+    private func loginAccount() {
+        FirebaseManager.shared.auth.signIn(withEmail: VM.email, password: VM.password) { result, err in
             if let err = err {
-                print("Couldn't Create User \(err)")
+                print("Couldn't Login User \(err)")
                 return
+            } else {
+                print("Login Successful")
+                VM.isUserLoggedIn = true
+                VM.errorMessage = "User has logged in"
             }
-            print("Successfully created user")
-            nextStepview = true
+            
         }
     }
-    
-    
-    
 }
 
-struct SignUpView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView( nextStepview: false)
+        LoginView()
     }
-    
 }
-
-
-
-
-

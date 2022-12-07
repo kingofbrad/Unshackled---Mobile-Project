@@ -140,9 +140,11 @@ struct MainMessagesView: View {
         HStack(spacing: 16){
             VStack(alignment: .leading, spacing: 4){
                 HStack {
-                    Text("\(vm.chatUser?.firstname ?? "")")
-                        .font(.system(size: 24, weight: .bold))
-                    Text("\(vm.chatUser?.lastname ?? "")")
+//                    Text("\(vm.chatUser?.firstname ?? "")")
+//                        .font(.system(size: 24, weight: .bold))
+//                    Text("\(vm.chatUser?.lastname ?? "")")
+//                        .font(.system(size: 24, weight: .bold))
+                    Text("\(vm.chatUser?.name ?? "")")
                         .font(.system(size: 24, weight: .bold))
                 }
                 HStack{
@@ -177,10 +179,11 @@ struct MainMessagesView: View {
             ])
         }
         .fullScreenCover(isPresented: $vm.isUserCurrentlyLoggedOut, onDismiss: nil) {
-            LoginScreenView(didCompleteLoginProgress: {
-                self.vm.isUserCurrentlyLoggedOut = false
-                self.vm.fetchCurrentUser()
-            })
+            //            LoginScreenView(didCompleteLoginProgress: {
+            //                self.vm.isUserCurrentlyLoggedOut = false
+            //                self.vm.fetchCurrentUser()
+            //            }
+            SignUpView()
         }
     }
 }

@@ -25,6 +25,10 @@ struct SignUpViewModal {
     var mobileNumber = ""
     var verificationCode = ""
     
+//    Login
+    var isSecured: Bool = false
+    var isUserLoggedIn: Bool = false
+    
     
 //    logic for sign up progress
     var finalViewToggle = false
@@ -34,4 +38,6 @@ struct SignUpViewModal {
     var showErrorMessage = false
     
     var errorMessage = ""
+    
 }
+
