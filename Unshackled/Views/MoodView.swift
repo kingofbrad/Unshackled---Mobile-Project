@@ -26,10 +26,7 @@ struct MoodView: View {
                 }
                 
             }
-            .onAppear() {
-                getCountriesData()
-                
-            }.navigationTitle(Text("Countries"))
+            
             
             
         }
@@ -42,17 +39,3 @@ struct MoodView_Previews: PreviewProvider {
 }
 
 
-extension MoodView {
-    func getCountriesData() {
-        Network().getCountries { (result) in
-            switch result {
-            case .success(let countries):
-                DispatchQueue.main.async {
-                    self.countries = countries
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-}

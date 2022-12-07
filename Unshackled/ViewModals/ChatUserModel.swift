@@ -15,6 +15,7 @@ struct ChatUser: Identifiable {
     let email: String
     let firstname: String
     let lastname: String
+    let name: String
     
     
     init(data: [String: Any]) {
@@ -22,5 +23,6 @@ struct ChatUser: Identifiable {
         self.email = data["email"] as? String ?? ""
         self.firstname = data["firstname"] as? String ?? ""
         self.lastname = data["lastname"] as? String ?? ""
+        self.name = data["name"] as? String ?? ""
     }
 }

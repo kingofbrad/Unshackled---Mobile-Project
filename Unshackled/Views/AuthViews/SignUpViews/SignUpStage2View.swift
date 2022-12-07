@@ -10,6 +10,7 @@ import Combine
 
 struct SignUpStage2View: View {
     @State private var SignUpVM = SignUpViewModal()
+    @State private var email = ""
     
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     
@@ -311,7 +312,21 @@ struct SignUpStage2View: View {
     
     private func storeUserInformation() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let userData = ["email": SignUpVM.email, "uid": uid]
+        
+        
+        let userData = [
+            "email": SignUpVM.email,
+            "uid": uid,
+            "name": SignUpVM.name,
+            "dobDay": SignUpVM.dobDay,
+            "dobMonth": SignUpVM.dobMonth,
+            "dobYear": SignUpVM.dobYear,
+            "location": SignUpVM.location,
+            "mobileNumber": SignUpVM.mobileNumber
+        ]
+        
+        
+        
         FirebaseManager.shared.firestore.collection("users")
             .document(uid).setData(userData) { err in
                 if let err = err {

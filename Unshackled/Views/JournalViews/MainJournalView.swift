@@ -38,7 +38,7 @@ class JournalViewModel: ObservableObject {
     @Published var journal = [Journal]()
     
     @Published var NoEntryfound = true
-    
+    @Environment (\.dismiss) private var dismiss
     init() {
         fetchUserJournal()
     }
@@ -99,6 +99,7 @@ class JournalViewModel: ObservableObject {
             self.errorMessage = "Successfully saved current user adding Journal entry"
             print("Successfully saved current user adding Journal Entry")
         }
+        
     }
 }
 
@@ -113,7 +114,9 @@ struct MainJournalView: View {
     var body: some View {
         NavigationStack{
             Text(jvm.errorMessage)
-            
+                .padding(.bottom, 15)
+            EntryButton
+
             ScrollView {
                 VStack {
                     ForEach(jvm.journal) {entry in
@@ -147,6 +150,7 @@ struct MainJournalView: View {
 struct journalDataView: View {
     let entry: Journal
     @ObservedObject var jvm: JournalViewModel
+    @State private var isAddJournalOpen: Bool = false
     var body: some View {
         VStack {
             if entry.fromId == FirebaseManager.shared.auth.currentUser?.uid {

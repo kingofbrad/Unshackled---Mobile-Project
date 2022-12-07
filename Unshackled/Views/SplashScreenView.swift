@@ -18,7 +18,7 @@ struct SplashScreenView: View {
                 VStack(spacing: 20) {
                     Image("MainAppIcon")
                         .resizable()
-                        .frame(width: 100, height: 100)
+                        .frame(width: 121, height: 31)
                     Image("IconName")
                     
                     
