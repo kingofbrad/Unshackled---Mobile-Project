@@ -8,6 +8,9 @@
 import Foundation
 
 struct SignUpViewModal {
+//    SignUpAndLoginViewToggle Boolan
+    var UserSignInToggle: Bool = false
+    
     
 //    sign up page 1
     var email = ""
