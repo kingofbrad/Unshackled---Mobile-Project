@@ -315,7 +315,7 @@ struct SignUpStage2View: View {
         
         
         let userData = [
-            "email": SignUpVM.email,
+            
             "uid": uid,
             "name": SignUpVM.name,
             "dobDay": SignUpVM.dobDay,
