@@ -315,7 +315,8 @@ struct SignUpStage2View: View {
         
         
         let userData = [
-            
+
+            "email": FirebaseManager.shared.auth.currentUser?.email,
             "uid": uid,
             "name": SignUpVM.name,
             "dobDay": SignUpVM.dobDay,
@@ -328,7 +329,7 @@ struct SignUpStage2View: View {
         
         
         FirebaseManager.shared.firestore.collection("users")
-            .document(uid).setData(userData) { err in
+            .document(uid).setData(userData as [String : Any]) { err in
                 if let err = err {
                     print(err)
                     SignUpVM.errorMessage = "\(err)"
@@ -339,6 +340,7 @@ struct SignUpStage2View: View {
                 
             }
     }
+    
 }
 
 struct SignUpStage2View_Previews: PreviewProvider {
