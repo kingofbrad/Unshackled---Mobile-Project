@@ -315,6 +315,7 @@ struct SignUpStage2View: View {
         
         
         let userData = [
+
             "email": FirebaseManager.shared.auth.currentUser?.email,
             "uid": uid,
             "name": SignUpVM.name,
