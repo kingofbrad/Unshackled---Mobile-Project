@@ -163,9 +163,29 @@ struct SignUpView: View {
                 print("Couldn't Create User \(err)")
                 return
             }
+            storeUserEmailInfomation()
             print("Successfully created user")
             nextStepview = true
         }
+    }
+    
+    private func storeUserEmailInfomation() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        
+        let emailData =
+        [
+            "email": SignUpVM.email
+        ]
+        FirebaseManager.shared.firestore.collection("users")
+            .document(uid).setData(emailData) {err in
+                if let err = err {
+                    print("Could not save user email into Firestore \(err)")
+                    SignUpVM.errorMessage = "Could not save user email in Firestore \(err)"
+                    return
+                }
+                print("Saved user email into Firestore")
+                SignUpVM.errorMessage = "Saved user email into Firestore"
+            }
     }
     
     
