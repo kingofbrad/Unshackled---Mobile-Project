@@ -34,9 +34,6 @@ class MainMessagesViewModel: ObservableObject {
 //            self.errorMessage = "\(data)"
             
             self.chatUser = .init(data: data)
-            
-            
-           
         }
     }
     

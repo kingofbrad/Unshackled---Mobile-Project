@@ -154,7 +154,7 @@ struct journalDataView: View {
     var body: some View {
         VStack {
             if entry.fromId == FirebaseManager.shared.auth.currentUser?.uid {
-                if jvm.NoEntryfound == false {
+                if !jvm.NoEntryfound {
                     VStack {
                         Text(entry.title)
                         Text(entry.text)

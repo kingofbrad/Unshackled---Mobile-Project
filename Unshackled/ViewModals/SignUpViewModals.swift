@@ -15,6 +15,7 @@ struct SignUpViewModal {
 //    sign up page 1
     var email = ""
     var password = ""
+    var nextStepview: Bool = false
     
 //    sign up page 2
     var name = ""
@@ -41,6 +42,9 @@ struct SignUpViewModal {
     var showErrorMessage = false
     
     var errorMessage = ""
+    
+    
+    
     
 }
 

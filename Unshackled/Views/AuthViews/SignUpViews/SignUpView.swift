@@ -6,11 +6,11 @@ import SwiftUI
 struct SignUpView: View {
     @State private var SignUpVM = SignUpViewModal()
     @State private var isSecured: Bool = true
-    @State var nextStepview = false
+    
     
     @State private var toLoginView: Bool = false
     
-  
+    
     
     
     var body: some View {
@@ -105,14 +105,14 @@ struct SignUpView: View {
     
     var signUpButtonView: some View {
         VStack(spacing: 17) {
-            NavigationLink(destination: SignUpStage2View(), isActive: $nextStepview) {
+            NavigationLink(destination: SignUpStage2View(), isActive: $SignUpVM.nextStepview) {
                 CustomSignUpButton(text: "Sign Up") {
                     createNewAccount()
                 }
             }
             
             Button {
-                nextStepview = true
+                SignUpVM.nextStepview = true
             } label: {
                 Label("SignUp with Google", image: "GoogleIcon")
                     .frame(width: 340, height: 50)
@@ -134,7 +134,7 @@ struct SignUpView: View {
             }
             NavigationLink(destination: LoginView(), isActive: $toLoginView) {
                 Button {
-                   toLoginView = true
+                    toLoginView = true
                 } label: {
                     HStack{
                         Text("Already a member?")
@@ -155,44 +155,23 @@ struct SignUpView: View {
         .padding(.bottom, 5)
     }
     
-    private func createNewAccount() {
+    func createNewAccount() {
         FirebaseManager.shared.auth.createUser(withEmail: SignUpVM.email, password: SignUpVM.password) { result, err in
             if let err = err {
                 print("Couldn't Create User \(err)")
                 return
             }
-            storeUserEmailInfomation()
             print("Successfully created user")
-            nextStepview = true
+            SignUpVM.nextStepview = true
         }
     }
-    
-    private func storeUserEmailInfomation() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        
-        let emailData =
-        [
-            "email": SignUpVM.email
-        ]
-        FirebaseManager.shared.firestore.collection("users")
-            .document(uid).setData(emailData) {err in
-                if let err = err {
-                    print("Could not save user email into Firestore \(err)")
-                    SignUpVM.errorMessage = "Could not save user email in Firestore \(err)"
-                    return
-                }
-                print("Saved user email into Firestore")
-                SignUpVM.errorMessage = "Saved user email into Firestore"
-            }
-    }
-    
     
     
 }
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView( nextStepview: false)
+        SignUpView()
     }
     
 }
