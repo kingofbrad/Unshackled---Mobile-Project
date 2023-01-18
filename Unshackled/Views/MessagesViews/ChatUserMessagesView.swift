@@ -170,7 +170,7 @@ struct ChatLogView: View {
             msgview
             chatBottomBar
         }
-        .navigationTitle(chatUser?.email ?? "")
+        .navigationTitle(chatUser?.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
 //        .navigationBarItems(trailing: Button(action: {
 //            vm.count += 1

@@ -10,9 +10,10 @@ import Firebase
 import FirebaseAuth
 
 struct HomeView: View {
-    @State private var dates: Set<DateComponents> = []
     @State private var UserLoggedOut = false
     @EnvironmentObject var dateHolder: DateHolder
+    
+    @State var selectedTab: Tabs = .home
     
     @State private var togglesheet = false
     
@@ -32,26 +33,41 @@ struct HomeView: View {
 //                }
 //            }
             
-            TabView {
+//            TabView {
+//                MainJournalView(jvm: JournalViewModel())
+//                    .tabItem{
+//                        Label("Journals", systemImage: "book.fill")
+//                    }
+//
+//                MainMessagesView()
+//                    .tabItem{
+//                        Label("Messages", systemImage: "message.fill")
+//                    }
+//
+//                MoodView()
+//
+//                    .tabItem{
+//                        Label("Mood", systemImage: "person.fill")
+//                    }
+//            }
+//            .navigationBarBackButtonHidden(true)
+//            .accentColor(Color.blue)
+            
+            if selectedTab == .home {
+                MainHomeView()
+            } else if selectedTab == .planner {
                 MainJournalView(jvm: JournalViewModel())
-                    .tabItem{
-                        Label("Journals", systemImage: "book.fill")
-                    }
-                
+            } else if selectedTab == .chats {
                 MainMessagesView()
-                    .tabItem{
-                        Label("Messages", systemImage: "message.fill")
-                    }
+            } else if selectedTab == .sos {
                 MoodView()
-                
-                    .tabItem{
-                        Label("Mood", systemImage: "person.fill")
-                    }
             }
-            .navigationBarBackButtonHidden(true)
-            .accentColor(Color.blue)
+            
+            
+            CustomTabBar(selectedTab: $selectedTab)
             
         }
+        .background(Color("lightpink"))
         
         
     }
