@@ -11,7 +11,7 @@ struct MainHomeView: View {
     var body: some View {
         NavigationStack {
             VStack{
-                Text("Main Home View")
+                EmotionLog()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("lightpink"))

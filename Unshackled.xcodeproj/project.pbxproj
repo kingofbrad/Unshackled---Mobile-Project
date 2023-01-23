@@ -10,6 +10,7 @@
 		FA0F4C112934018900191ACE /* CustomButtonComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F4C102934018900191ACE /* CustomButtonComp.swift */; };
 		FA0F4C14293410FC00191ACE /* CheckListProgressVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F4C13293410FC00191ACE /* CheckListProgressVIew.swift */; };
 		FA0F4C182935873000191ACE /* CountryDialCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F4C172935873000191ACE /* CountryDialCodeManager.swift */; };
+		FA1D2EBF297EEED200EC8DE5 /* EmotionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D2EBE297EEED200EC8DE5 /* EmotionLog.swift */; };
 		FA2CE06B29181E2C00C4D5CD /* ChatUserMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CE06A29181E2C00C4D5CD /* ChatUserMessagesView.swift */; };
 		FA5B55552923E92C00FD0876 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B55542923E92C00FD0876 /* SignUpView.swift */; };
 		FA5B55572923EF5700FD0876 /* Vidaloka-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA5B55562923EF5700FD0876 /* Vidaloka-Regular.ttf */; };
@@ -76,6 +77,7 @@
 		FA0F4C102934018900191ACE /* CustomButtonComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonComp.swift; sourceTree = "<group>"; };
 		FA0F4C13293410FC00191ACE /* CheckListProgressVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListProgressVIew.swift; sourceTree = "<group>"; };
 		FA0F4C172935873000191ACE /* CountryDialCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDialCodeManager.swift; sourceTree = "<group>"; };
+		FA1D2EBE297EEED200EC8DE5 /* EmotionLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionLog.swift; sourceTree = "<group>"; };
 		FA2CE06A29181E2C00C4D5CD /* ChatUserMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserMessagesView.swift; sourceTree = "<group>"; };
 		FA5B55542923E92C00FD0876 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		FA5B55562923EF5700FD0876 /* Vidaloka-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Vidaloka-Regular.ttf"; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 				FA0F4C13293410FC00191ACE /* CheckListProgressVIew.swift */,
 			);
 			path = CheckListProgessView;
+			sourceTree = "<group>";
+		};
+		FA1D2EBD297EEEBC00EC8DE5 /* EmotionLog */ = {
+			isa = PBXGroup;
+			children = (
+				FA1D2EBE297EEED200EC8DE5 /* EmotionLog.swift */,
+			);
+			path = EmotionLog;
 			sourceTree = "<group>";
 		};
 		FA5B55582923EF6800FD0876 /* Fonts */ = {
@@ -266,6 +276,7 @@
 		FA83810828F5A78A007B34AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA1D2EBD297EEEBC00EC8DE5 /* EmotionLog */,
 				FA7BBADC293CE13300FEACAF /* HomeView */,
 				FAD96730291192D60072C300 /* MessagesViews */,
 				FAD96727291146ED0072C300 /* JournalViews */,
@@ -562,6 +573,7 @@
 				FA7BBAD72936AFF100FEACAF /* SignUpFinalScreen.swift in Sources */,
 				FAD9672F291190840072C300 /* ChatUserModel.swift in Sources */,
 				FA7BBADE293CE13F00FEACAF /* HomeView.swift in Sources */,
+				FA1D2EBF297EEED200EC8DE5 /* EmotionLog.swift in Sources */,
 				FA8380DE28F5A76B007B34AF /* UnshackledApp.swift in Sources */,
 				FA7BBAD9293BD10D00FEACAF /* SignUpViewModals.swift in Sources */,
 				FA0F4C182935873000191ACE /* CountryDialCodeManager.swift in Sources */,
