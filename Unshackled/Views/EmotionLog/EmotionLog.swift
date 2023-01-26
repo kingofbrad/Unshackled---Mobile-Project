@@ -10,18 +10,62 @@ import SwiftUI
 
 
 struct EmotionLog: View {
+    @State var moreEmojiToggle: Bool = false
+    
     var body: some View {
-        HStack {
-            EmotionBtn(icon: "face.smiling", text: "Happy")
-            EmotionBtn(icon: "face.smiling", text: "Sad")
-            EmotionBtn(icon: "face.smiling", text: "Angry")
-            EmotionBtn(icon: "face.smiling", text: "Shocked")
-            EmotionBtn(icon: "plus", text: "Add")
+        VStack {
+            HStack {
+                EmotionBtn(icon: "face.smiling", text: "Happy") {
+                    print("happy")
+                }
+                EmotionBtn(icon: "face.smiling", text: "Sad") {
+                    print("Sad")
+                }
+                EmotionBtn(icon: "face.smiling", text: "Angry") {
+                    print("Angry")
+                }
+                EmotionBtn(icon: "face.smiling", text: "Shocked") {
+                    print("Shocked")
+                }
+                Button{
+                    moreEmojiToggle.toggle()
+                } label: {
+                    VStack{
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width:25, height: 25)
+                            .foregroundColor(.black)
+                        
+                    }
+                    .frame(width:100, height: 100)
+                    .background(Color(moreEmojiToggle ? "VistaWhite" : "White"))
+                    .cornerRadius(50)
+                }
+                .frame(width: 50, height: 50)
+                .padding(10)
+                .background(Color(.white))
+                .cornerRadius(10)
+                
+                
+            }
             
+            ExpandedEmojis
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color("lightpink"))
         
+    }
+    
+    
+    
+    var ExpandedEmojis: some View {
+        VStack {
+            if moreEmojiToggle {
+                ExpandedSection()
+            } else {
+                Text("Not Expanded")
+            }
+        }
     }
 }
 
@@ -32,14 +76,24 @@ struct EmotionLog_Previews: PreviewProvider {
 }
 
 
+struct ExpandedSection: View {
+    var body: some View {
+        VStack {
+            EmotionBtn(icon: "face.smiling", text: "Playful") {
+                print("Playful")
+            }
+        }
+    }
+}
+
+
+
 struct EmotionBtn: View {
     var icon: String
     var text: String
-    
+    var clickedBtn: (() -> Void)
     var body: some View {
-        Button {
-            print("Button Pressed")
-        } label: {
+        Button(action: clickedBtn) {
             VStack{
                 Image(systemName: icon)
                     .resizable()
@@ -63,4 +117,5 @@ struct EmotionBtn: View {
         
         
     }
+    
 }
