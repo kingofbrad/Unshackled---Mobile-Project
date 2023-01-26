@@ -123,10 +123,14 @@ struct MainJournalView: View {
                         journalDataView(entry: entry, jvm: JournalViewModel())
                     }
                 }
+                
             }
+            .background(Color("lightpink"))
             .navigationTitle("Journal")
             .toolbar{EntryButton}
+            
         }
+        
     }
     
     
