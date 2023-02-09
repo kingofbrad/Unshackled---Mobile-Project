@@ -8,13 +8,51 @@
 import SwiftUI
 
 struct MainHomeView: View {
+    
+    var openQuotationMarks = "\""
+    
+    
     var body: some View {
         NavigationStack {
-            VStack{
-                EmotionLog()
+            VStack(){
+                HStack {
+                    title
+                    Spacer()
+                }
+                .padding(.horizontal, 30)
+                ZStack(alignment: .center) {
+                    HStack{
+                        Image("HomeBorder")
+                            .resizable()
+                            .frame(width: 360, height: 90)
+                    }
+                    Text("I will not worry about things I cannot control.")
+                        .font(.custom("Poppins-Regular", size: 16))
+                        .frame(width: 180)
+                }
+                
+                Section("Emotion") {
+                    EmotionLog()
+                }
+              
+                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("lightpink"))
+            
+        }
+        
+    }
+    
+    var title: some View {
+        VStack {
+            VStack(alignment: .leading){
+                
+                Text("Morning,")
+                    .font(.custom("Vidaloka-Regular", size: 40))
+                Text("How are you today?")
+                    .font(.custom("Poppins-SemiBold", size: 15))
+            }
         }
     }
 }

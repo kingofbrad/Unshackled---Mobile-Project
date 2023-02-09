@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct SecondWidget: View {
     var body: some View {
         ZStack {

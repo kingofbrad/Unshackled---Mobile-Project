@@ -37,7 +37,9 @@ struct LoginView: View {
                     .foregroundColor(Color("lightpink"))
                     .frame(width: 600, height: 400)
                     .offset(x: -85, y: -410)
+                    
             }
+            .zIndex(0)
             
         }
         .navigationBarBackButtonHidden()
@@ -100,6 +102,7 @@ struct LoginView: View {
                 
             }
         }
+        .zIndex(1)
         .padding(.bottom, 60)
     }
     var LoginButtonView: some View {
@@ -138,10 +141,10 @@ struct LoginView: View {
                    toSignUpView = true
                 } label: {
                     HStack{
-                        Text("Already a member?")
+                        Text("Not a Member?")
                             .foregroundColor(Color(.init(white: 0, alpha: 0.34)))
                             .font(.custom("Poppins-Medium", size: 17))
-                        Text("Login")
+                        Text("Sign Up")
                             .foregroundColor(Color("lightTurquoise"))
                     }
                     .frame(width: 340, height: 50)

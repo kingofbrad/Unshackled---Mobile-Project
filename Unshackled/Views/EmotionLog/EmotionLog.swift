@@ -15,16 +15,16 @@ struct EmotionLog: View {
     var body: some View {
         VStack {
             HStack {
-                EmotionBtn(icon: "face.smiling", text: "Happy") {
+                EmotionBtn(icon: "happy", text: "Happy") {
                     print("happy")
                 }
-                EmotionBtn(icon: "face.smiling", text: "Sad") {
+                EmotionBtn(icon: "sad-2", text: "Sad") {
                     print("Sad")
                 }
-                EmotionBtn(icon: "face.smiling", text: "Angry") {
+                EmotionBtn(icon: "sad-3", text: "Angry") {
                     print("Angry")
                 }
-                EmotionBtn(icon: "face.smiling", text: "Shocked") {
+                EmotionBtn(icon: "surprise", text: "Shocked") {
                     print("Shocked")
                 }
                 Button{
@@ -45,25 +45,9 @@ struct EmotionLog: View {
                 .padding(10)
                 .background(Color(.white))
                 .cornerRadius(10)
-                
-                
-            }
-            
-            ExpandedEmojis
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color("lightpink"))
-        
-    }
-    
-    
-    
-    var ExpandedEmojis: some View {
-        VStack {
-            if moreEmojiToggle {
-                ExpandedSection()
-            } else {
-                Text("Not Expanded")
+                .sheet(isPresented: $moreEmojiToggle) {
+                    ExpandedSection()
+                }
             }
         }
     }
@@ -78,13 +62,16 @@ struct EmotionLog_Previews: PreviewProvider {
 
 struct ExpandedSection: View {
     var body: some View {
-        VStack {
-            EmotionBtn(icon: "face.smiling", text: "Playful") {
-                print("Playful")
+        NavigationStack {
+            VStack {
+                Image("sad")
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("lightpink"))
         }
     }
 }
+
 
 
 
@@ -95,7 +82,7 @@ struct EmotionBtn: View {
     var body: some View {
         Button(action: clickedBtn) {
             VStack{
-                Image(systemName: icon)
+                Image(icon)
                     .resizable()
                     .frame(width:25, height: 25)
                     .foregroundColor(.black)
