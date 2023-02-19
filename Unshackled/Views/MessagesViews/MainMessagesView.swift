@@ -16,7 +16,7 @@ class MainMessagesViewModel: ObservableObject {
     }
     
     func fetchCurrentUser() {
-   
+        
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
             self.errorMessage = "Could not find firebase uid"
             return}
@@ -31,7 +31,7 @@ class MainMessagesViewModel: ObservableObject {
             guard let data = snapshot?.data() else {
                 self.errorMessage = "No Data Found"
                 return}
-//            self.errorMessage = "\(data)"
+            //            self.errorMessage = "\(data)"
             
             self.chatUser = .init(data: data)
         }
@@ -58,7 +58,7 @@ struct MainMessagesView: View {
     var body: some View {
         NavigationView {
             VStack{
-//                Text(vm.errorMessage)
+                //                Text(vm.errorMessage)
                 customNavBar
                 messagesView
                 
@@ -66,6 +66,7 @@ struct MainMessagesView: View {
                     ChatLogView(chatUser: self.chatUser)
                 }
             }
+            .background(Color("lightpink"))
             .overlay(
                 newMessageBtn, alignment: .bottom)
             .navigationBarHidden(true)
@@ -137,10 +138,10 @@ struct MainMessagesView: View {
         HStack(spacing: 16){
             VStack(alignment: .leading, spacing: 4){
                 HStack {
-//                    Text("\(vm.chatUser?.firstname ?? "")")
-//                        .font(.system(size: 24, weight: .bold))
-//                    Text("\(vm.chatUser?.lastname ?? "")")
-//                        .font(.system(size: 24, weight: .bold))
+                    //                    Text("\(vm.chatUser?.firstname ?? "")")
+                    //                        .font(.system(size: 24, weight: .bold))
+                    //                    Text("\(vm.chatUser?.lastname ?? "")")
+                    //                        .font(.system(size: 24, weight: .bold))
                     Text("\(vm.chatUser?.name ?? "")")
                         .font(.system(size: 24, weight: .bold))
                 }
@@ -175,13 +176,7 @@ struct MainMessagesView: View {
                 .cancel()
             ])
         }
-        .fullScreenCover(isPresented: $vm.isUserCurrentlyLoggedOut, onDismiss: nil) {
-            //            LoginScreenView(didCompleteLoginProgress: {
-            //                self.vm.isUserCurrentlyLoggedOut = false
-            //                self.vm.fetchCurrentUser()
-            //            }
-            SignUpView()
-        }
+        
     }
 }
 
