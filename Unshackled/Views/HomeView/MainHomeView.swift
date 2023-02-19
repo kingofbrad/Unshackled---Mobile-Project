@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct MainHomeView: View {
-    
-    var openQuotationMarks = "\""
-    
-    
     var body: some View {
         NavigationStack {
-            VStack(){
+            
+            VStack{
                 HStack {
-                    title
+                    greetingSection
                     Spacer()
                 }
                 .padding(.horizontal, 30)
@@ -28,33 +25,30 @@ struct MainHomeView: View {
                     }
                     Text("I will not worry about things I cannot control.")
                         .font(.custom("Poppins-Regular", size: 16))
-                        .frame(width: 180)
+                        .frame(width: 290)
+                        .lineSpacing(3)
+                        .tracking(4)
                 }
-                
-                Section("Emotion") {
-                    EmotionLog()
-                }
-              
+                EmotionLog()
+
                 
             }
+            .ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("lightpink"))
-            
         }
         
     }
-    
-    var title: some View {
-        VStack {
-            VStack(alignment: .leading){
-                
-                Text("Morning,")
-                    .font(.custom("Vidaloka-Regular", size: 40))
-                Text("How are you today?")
-                    .font(.custom("Poppins-SemiBold", size: 15))
-            }
+    var greetingSection: some View {
+        VStack(alignment: .leading) {
+            Text("Morning,")
+                .font(.custom("Vidaloka-Regular", size: 40))
+            Text("How are you today?")
+                .font(.custom("Poppins-SemiBold", size: 15))
         }
     }
+    
+    
 }
 
 struct MainHomeView_Previews: PreviewProvider {

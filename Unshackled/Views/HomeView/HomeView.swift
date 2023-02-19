@@ -18,7 +18,7 @@ struct HomeView: View {
             if selectedTab == .home {
                 MainHomeView()
             } else if selectedTab == .planner {
-                MainJournalView(jvm: JournalViewModel())
+                PlannerView()
             } else if selectedTab == .chats {
                 MainMessagesView()
             } else if selectedTab == .sos {
@@ -26,6 +26,7 @@ struct HomeView: View {
             }
             CustomTabBar(selectedTab: $selectedTab)
         }
+        .zIndex(10)
         .background(Color("lightpink"))
     }
     
