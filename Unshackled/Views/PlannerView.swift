@@ -49,11 +49,11 @@ struct PlannerView: View {
                     VStack(spacing: 10) {
 
                         
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: MainEmotionLogView()) {
                             NavLinkLabel(title: "Emotion Log", content: "Keep track of your emotions by selecting the face that best represents how you're feeling.", blob: "EmotionLogBlob", icon: "EmotionLogIcon")
                         }
                         
-                        NavigationLink(destination: EmptyView()) {
+                        NavigationLink(destination: MainJournalView(jvm: JournalViewModel())) {
                             NavLinkLabel(title: "Journal", content: "A blank page waiting for some thoughts. Locked behind a passcode for your comfort", blob: "JournalBlob", icon: "JournalIcon")
                         }
                         NavigationLink(destination: EmptyView()) {

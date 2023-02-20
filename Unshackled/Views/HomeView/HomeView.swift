@@ -26,8 +26,9 @@ struct HomeView: View {
             }
             CustomTabBar(selectedTab: $selectedTab)
         }
-        .zIndex(10)
         .background(Color("lightpink"))
+        .zIndex(10)
+        
     }
     
     

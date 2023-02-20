@@ -38,7 +38,6 @@
 		FA8381492902DA16007B34AF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA8381482902DA16007B34AF /* FirebaseFirestore */; };
 		FA83814B2902DA16007B34AF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA83814A2902DA16007B34AF /* FirebaseFirestoreSwift */; };
 		FA83814D2902DA16007B34AF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FA83814C2902DA16007B34AF /* FirebaseStorage */; };
-		FA83815329030657007B34AF /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815229030657007B34AF /* LoginScreenView.swift */; };
 		FA83815E290493A6007B34AF /* CheckBoxBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83815D290493A6007B34AF /* CheckBoxBtn.swift */; };
 		FA8381612904A883007B34AF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8381602904A883007B34AF /* ProfileView.swift */; };
 		FAACB61D2909A00D00CFBCA6 /* FaceIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAACB61C2909A00D00CFBCA6 /* FaceIDViewModel.swift */; };
@@ -106,7 +105,6 @@
 		FA83810F28F5BD00007B34AF /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		FA83811828FEF29C007B34AF /* MoodController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodController.swift; sourceTree = "<group>"; };
 		FA83811B29005F72007B34AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "Unshackled/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		FA83815229030657007B34AF /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
 		FA83815D290493A6007B34AF /* CheckBoxBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxBtn.swift; sourceTree = "<group>"; };
 		FA8381602904A883007B34AF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FAACB61B29098D0D00CFBCA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 			children = (
 				FA7BBADF293CF4C600FEACAF /* LoginViews */,
 				FAF31458292974B200E1E211 /* SignUpViews */,
-				FA83815229030657007B34AF /* LoginScreenView.swift */,
 			);
 			path = AuthViews;
 			sourceTree = "<group>";
@@ -562,7 +559,6 @@
 				FAACB61D2909A00D00CFBCA6 /* FaceIDViewModel.swift in Sources */,
 				FAD9671F29101A190072C300 /* DateScrollerView.swift in Sources */,
 				FAD9672B291148FE0072C300 /* Add:EditJournalView.swift in Sources */,
-				FA83815329030657007B34AF /* LoginScreenView.swift in Sources */,
 				FA5B55552923E92C00FD0876 /* SignUpView.swift in Sources */,
 				FA71B56F29775AC000252AD8 /* CustomTabBar.swift in Sources */,
 				FAD9671B291019450072C300 /* CalenderView.swift in Sources */,
