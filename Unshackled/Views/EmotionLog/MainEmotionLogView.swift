@@ -7,9 +7,23 @@
 
 import SwiftUI
 
-var emojis = ["happy", "crying", "smile", "sceptic", "meh"]
+
+struct Emojis: Identifiable, Hashable {
+    var id = UUID()
+    var image: String
+    var section: String
+}
+
 
 struct MainEmotionLogView: View {
+    
+    var emojiArray: [Emojis] = [
+        .init(image: "happy", section: "Monday" ),
+        .init(image: "sad", section: "Tuesday"),
+        .init(image: "bored", section: "Wednesday")
+    ]
+    
+    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading){
@@ -17,6 +31,23 @@ struct MainEmotionLogView: View {
                     .font(.custom("Vidaloka-Regular", size: 40))
                 Text("What have you been up to?")
                     .font(.custom("Poppins-SemiBold", size: 15))
+                
+                ScrollView() {
+                    ForEach(emojiArray) { emoji in
+                        Section(emoji.section) {
+                            Image(emoji.image)
+                            
+                        }
+                        .frame(maxWidth: .infinity)
+                        
+                    }
+                    
+                    
+                    
+                }
+                .frame(maxWidth: .infinity, maxHeight: 450)
+                .background(Color.white)
+                
                 
                 Section {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -61,6 +92,7 @@ struct MainEmotionLogView: View {
                 }
                 
             }
+            .background(Color("lightpink"))
             Spacer()
         }
     }
@@ -109,3 +141,4 @@ struct ActivitesBtnScrollView: View {
         }
     }
 }
+

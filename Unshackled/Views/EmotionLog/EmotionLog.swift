@@ -8,50 +8,62 @@
 import SwiftUI
 
 
+struct EmotionLogViewModel: Identifiable {
+    var id = UUID()
+    let icon: String
+    let text: String
+}
 
 struct EmotionLog: View {
-    @State var moreEmojiToggle: Bool = false
+    var emojiArray = EmojiArray()
     
+    @State var moreEmojiToggle: Bool = false
     var body: some View {
         VStack(alignment: .leading) {
             Section {
                 HStack {
-                    EmotionBtn(icon: "happy", text: "Happy") {
-                        print("happy")
-                    }
-                    EmotionBtn(icon: "sad-2", text: "Sad") {
-                        print("Sad")
-                    }
-                    EmotionBtn(icon: "sad-3", text: "Angry") {
-                        print("Angry")
-                    }
-                    EmotionBtn(icon: "surprise", text: "Shocked") {
-                        print("Shocked")
-                    }
-                    EmotionBtn(icon: "smile", text: "Loved") {
-                        print("Shocked")
-                    }
-                    Button{
-                        moreEmojiToggle.toggle()
-                    } label: {
-                        VStack{
-                            Image(systemName: "plus")
-                                .resizable()
-                                .frame(width:25, height: 25)
-                                .foregroundColor(.black)
-                            
+                    ForEach(emojiArray.EmotionBtnArray.prefix(5)) { item in
+                        EmotionBtn(icon: item.icon, text: item.text) {
+                            print("happy")
                         }
-                        .frame(width:100, height: 100)
-                        .background(Color(moreEmojiToggle ? "VistaWhite" : "White"))
-                        .cornerRadius(50)
                     }
-                    .frame(width: 35, height: 35)
-                    .padding(9)
-                    .background(Color(.white))
-                    .cornerRadius(10)
-                    .sheet(isPresented: $moreEmojiToggle) {
-                        ExpandedSection()
-                    }
+                    
+//                    EmotionBtn(icon: "happy", text: "Happy") {
+//                        print("happy")
+//                    }
+//                    EmotionBtn(icon: "sad-2", text: "Sad") {
+//                        print("Sad")
+//                    }
+//                    EmotionBtn(icon: "sad-3", text: "Angry") {
+//                        print("Angry")
+//                    }
+//                    EmotionBtn(icon: "surprise", text: "Shocked") {
+//                        print("Shocked")
+//                    }
+//                    EmotionBtn(icon: "smile", text: "Loved") {
+//                        print("Shocked")
+//                    }
+//                    Button{
+//                        moreEmojiToggle.toggle()
+//                    } label: {
+//                        VStack{
+//                            Image(systemName: "plus")
+//                                .resizable()
+//                                .frame(width:25, height: 25)
+//                                .foregroundColor(.black)
+//
+//                        }
+//                        .frame(width:100, height: 100)
+//                        .background(Color(moreEmojiToggle ? "VistaWhite" : "White"))
+//                        .cornerRadius(50)
+//                    }
+//                    .frame(width: 35, height: 35)
+//                    .padding(9)
+//                    .background(Color(.white))
+//                    .cornerRadius(10)
+//                    .sheet(isPresented: $moreEmojiToggle) {
+//                        ExpandedSection()
+//                    }
                 }
             } header: {
                 Text("Emotion Log")

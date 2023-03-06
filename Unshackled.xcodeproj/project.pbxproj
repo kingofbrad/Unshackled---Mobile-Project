@@ -11,6 +11,7 @@
 		FA0F4C14293410FC00191ACE /* CheckListProgressVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F4C13293410FC00191ACE /* CheckListProgressVIew.swift */; };
 		FA0F4C182935873000191ACE /* CountryDialCodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F4C172935873000191ACE /* CountryDialCodeManager.swift */; };
 		FA1D2EBF297EEED200EC8DE5 /* EmotionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D2EBE297EEED200EC8DE5 /* EmotionLog.swift */; };
+		FA28E38E29AD3EC3006BEF61 /* EmojiArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA28E38D29AD3EC3006BEF61 /* EmojiArray.swift */; };
 		FA2CE06B29181E2C00C4D5CD /* ChatUserMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2CE06A29181E2C00C4D5CD /* ChatUserMessagesView.swift */; };
 		FA33A209299D160400C25559 /* MainEmotionLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33A208299D160400C25559 /* MainEmotionLogView.swift */; };
 		FA33A20C29A12DF900C25559 /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33A20B29A12DF900C25559 /* PlannerView.swift */; };
@@ -79,6 +80,7 @@
 		FA0F4C13293410FC00191ACE /* CheckListProgressVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListProgressVIew.swift; sourceTree = "<group>"; };
 		FA0F4C172935873000191ACE /* CountryDialCodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDialCodeManager.swift; sourceTree = "<group>"; };
 		FA1D2EBE297EEED200EC8DE5 /* EmotionLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionLog.swift; sourceTree = "<group>"; };
+		FA28E38D29AD3EC3006BEF61 /* EmojiArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArray.swift; sourceTree = "<group>"; };
 		FA2CE06A29181E2C00C4D5CD /* ChatUserMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserMessagesView.swift; sourceTree = "<group>"; };
 		FA33A208299D160400C25559 /* MainEmotionLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEmotionLogView.swift; sourceTree = "<group>"; };
 		FA33A20B29A12DF900C25559 /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 			path = EmotionLog;
 			sourceTree = "<group>";
 		};
+		FA28E38C29AD3EA3006BEF61 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FA28E38D29AD3EC3006BEF61 /* EmojiArray.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		FA33A20A29A12DE700C25559 /* PlannerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +264,7 @@
 		FA8380DC28F5A76B007B34AF /* Unshackled */ = {
 			isa = PBXGroup;
 			children = (
+				FA28E38C29AD3EA3006BEF61 /* Data */,
 				FA5B55582923EF6800FD0876 /* Fonts */,
 				FAACB61B29098D0D00CFBCA6 /* Info.plist */,
 				FA8381282900644F007B34AF /* ViewModals */,
@@ -561,6 +572,7 @@
 				FAD9672B291148FE0072C300 /* Add:EditJournalView.swift in Sources */,
 				FA5B55552923E92C00FD0876 /* SignUpView.swift in Sources */,
 				FA71B56F29775AC000252AD8 /* CustomTabBar.swift in Sources */,
+				FA28E38E29AD3EC3006BEF61 /* EmojiArray.swift in Sources */,
 				FAD9671B291019450072C300 /* CalenderView.swift in Sources */,
 				FA83815E290493A6007B34AF /* CheckBoxBtn.swift in Sources */,
 				FA7BBAE1293CF4D300FEACAF /* LoginView.swift in Sources */,

@@ -10,10 +10,18 @@ struct SignUpView: View {
     
     @State private var toLoginView: Bool = false
     
-    
+    @State private var appContext = AppContext()
     
     
     var body: some View {
+        if !appContext.appUnlocked {
+            MainSignUp
+        } else {
+            HomeView()
+        }
+    }
+    
+    var MainSignUp: some View {
         NavigationStack {
             VStack(spacing: 15){
                 HStack {
@@ -39,6 +47,10 @@ struct SignUpView: View {
                     .offset(x: -85, y: -410)
             }
             
+            
+        }
+        .onAppear {
+            appContext.requestBiometricUnlock()
         }
         .navigationBarBackButtonHidden()
     }
@@ -175,6 +187,7 @@ struct SignUpView_Previews: PreviewProvider {
     }
     
 }
+
 
 
 

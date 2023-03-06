@@ -11,18 +11,10 @@ import SwiftUI
 
 @main
 struct UnshackledApp: App {
-    let dateHolder = DateHolder()
     @State private var userloggedin = true
     
     var body: some Scene {
         WindowGroup {
-//            if (userloggedin) {
-//                ContentView()
-//                    .environmentObject(dateHolder)
-//            } else {
-//                LoginScreenView(didCompleteLoginProgress: {})
-//            }
-//            SignUpView(nextStepview: false)
             SplashScreenView()
         }
         
