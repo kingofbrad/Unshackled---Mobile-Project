@@ -27,12 +27,32 @@ struct EmotionLog: View {
                             print("happy")
                         }
                     }
-                    EmotionBtn(icon: "unsure", text: "") {
+                    Button {
+                        print("More Emojis Expanded")
                         moreEmojiToggle = true
-                    }.sheet(isPresented: $moreEmojiToggle) {
+                    } label:{
+                        VStack{
+                            
+                            Image(systemName: "plus")
+                                .resizable()
+                                .frame(width:20, height: 20)
+                                .foregroundColor(.black)
+                            
+                            
+                            
+                        }
+                        .frame(width:100, height: 100)
+                        .background(Color(moreEmojiToggle ? "VistaWhite" : "White"))
+                        .cornerRadius(50)
+                    }
+                    .frame(width: 35, height: 35)
+                    .padding(9)
+                    .background(Color(.white))
+                    .cornerRadius(50)
+                    .sheet(isPresented: $moreEmojiToggle) {
                         EmptyView()
                     }
-                   
+                    
                 }
             } header: {
                 Text("Emotion Log")
@@ -64,20 +84,19 @@ struct EmotionBtn: View {
     var body: some View {
         Button(action: clickedBtn) {
             VStack{
+                
                 Image(icon)
                     .resizable()
                     .frame(width:20, height: 20)
                     .foregroundColor(.black)
-                if isTextUsed {
-                    Text(text)
-                        .foregroundColor(.black)
-                        .font(.system(size: 12))
-                }
+                Text(text)
+                    .foregroundColor(.black)
+                    .font(.system(size: 12))
                 
                 
             }
             .frame(width:100, height: 100)
-            .background(Color("VistaWhite"))
+            .background(Color("White"))
             .cornerRadius(50)
         }
         .frame(width: 35, height: 35)
@@ -93,31 +112,6 @@ struct EmotionBtn: View {
     
 }
 
-
-struct EmojiBtn: View {
-    var icon: String
-    var text: String
-    var isTextUsed: Bool = false
-    var btnFunc: (() -> Void)
-    var body: some View {
-        Button(action: btnFunc) {
-            VStack {
-                Image(icon)
-                    .resizable()
-                    .frame(maxWidth: 30, maxHeight: 30)
-                
-                
-                Text(text)
-                    .font(.custom("Poppins-Regular", size: 16))
-                    .foregroundColor(.primary)
-            }
-        }
-        .frame(width: 70, height: 70)
-        .background(Color(.purple))
-        .cornerRadius(10)
-        
-    }
-}
 
 
 

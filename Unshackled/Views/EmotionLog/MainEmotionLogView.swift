@@ -20,7 +20,8 @@ struct MainEmotionLogView: View {
     var emojiArray: [Emojis] = [
         .init(image: "happy", section: "Monday" ),
         .init(image: "sad", section: "Tuesday"),
-        .init(image: "bored", section: "Wednesday")
+        .init(image: "bored", section: "Wednesday"),
+        .init(image: "smile-2", section: "Thursday")
     ]
     
     
