@@ -8,11 +8,7 @@
 import SwiftUI
 
 
-struct EmotionLogViewModel: Identifiable {
-    var id = UUID()
-    let icon: String
-    let text: String
-}
+
 
 struct EmotionLog: View {
     var emojiArray = EmojiArray()
@@ -37,9 +33,6 @@ struct EmotionLog: View {
                                 .resizable()
                                 .frame(width:20, height: 20)
                                 .foregroundColor(.black)
-                            
-                            
-                            
                         }
                         .frame(width:100, height: 100)
                         .background(Color(moreEmojiToggle ? "VistaWhite" : "White"))
@@ -50,9 +43,8 @@ struct EmotionLog: View {
                     .background(Color(.white))
                     .cornerRadius(50)
                     .sheet(isPresented: $moreEmojiToggle) {
-                        EmptyView()
+                        MoreEmojis()
                     }
-                    
                 }
             } header: {
                 Text("Emotion Log")
@@ -69,12 +61,44 @@ struct EmotionLog_Previews: PreviewProvider {
 
 
 
-struct ExpandedSection_Preview: PreviewProvider {
+struct MoreEmojis_Preview: PreviewProvider {
     static var previews: some View {
-        EmptyView()
-    }
+        MoreEmojis()    }
 }
 
+struct MoreEmojis: View {
+    
+    var emojiArray = EmojiArray()
+    
+    var body: some View {
+        VStack {
+            
+            HStack{
+                ForEach(emojiArray.EmotionArrayHappy) { emoji in
+                    EmotionBtn(icon: emoji.icon, text: emoji.text) {
+                        print(emoji.text)
+                    }
+                }
+            }
+            HStack{
+                ForEach(emojiArray.EmotionArraySad) { emoji in
+                    EmotionBtn(icon: emoji.icon, text: emoji.text) {
+                        print(emoji.text)
+                    }
+                }
+            }
+            HStack{
+                ForEach(emojiArray.EmotionArrayOther) { emoji in
+                    EmotionBtn(icon: emoji.icon, text: emoji.text) {
+                        print(emoji.text)
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("lightpink"))
+    }
+}
 
 struct EmotionBtn: View {
     var icon: String
@@ -84,7 +108,6 @@ struct EmotionBtn: View {
     var body: some View {
         Button(action: clickedBtn) {
             VStack{
-                
                 Image(icon)
                     .resizable()
                     .frame(width:20, height: 20)
@@ -92,8 +115,6 @@ struct EmotionBtn: View {
                 Text(text)
                     .foregroundColor(.black)
                     .font(.system(size: 12))
-                
-                
             }
             .frame(width:100, height: 100)
             .background(Color("White"))
@@ -103,11 +124,6 @@ struct EmotionBtn: View {
         .padding(9)
         .background(Color(.white))
         .cornerRadius(10)
-        
-        
-        
-        
-        
     }
     
 }

@@ -17,6 +17,8 @@
 		FA33A20C29A12DF900C25559 /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA33A20B29A12DF900C25559 /* PlannerView.swift */; };
 		FA5B55552923E92C00FD0876 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B55542923E92C00FD0876 /* SignUpView.swift */; };
 		FA5B55572923EF5700FD0876 /* Vidaloka-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA5B55562923EF5700FD0876 /* Vidaloka-Regular.ttf */; };
+		FA63EAA729C3451C001BD219 /* WeekViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63EAA629C3451C001BD219 /* WeekViewModel.swift */; };
+		FA63EAAA29C34DA2001BD219 /* CustomWeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63EAA929C34DA2001BD219 /* CustomWeekHeader.swift */; };
 		FA71B56F29775AC000252AD8 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71B56E29775AC000252AD8 /* CustomTabBar.swift */; };
 		FA71B5732977655200252AD8 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71B5722977655200252AD8 /* TabBarButton.swift */; };
 		FA71B57529776E9800252AD8 /* MainHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71B57429776E9800252AD8 /* MainHomeView.swift */; };
@@ -86,6 +88,8 @@
 		FA33A20B29A12DF900C25559 /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
 		FA5B55542923E92C00FD0876 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		FA5B55562923EF5700FD0876 /* Vidaloka-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Vidaloka-Regular.ttf"; sourceTree = "<group>"; };
+		FA63EAA629C3451C001BD219 /* WeekViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViewModel.swift; sourceTree = "<group>"; };
+		FA63EAA929C34DA2001BD219 /* CustomWeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWeekHeader.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		FA71B56E29775AC000252AD8 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		FA71B5722977655200252AD8 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		FA71B57429776E9800252AD8 /* MainHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeView.swift; sourceTree = "<group>"; };
@@ -196,6 +200,14 @@
 				FA75290C292950D100F96C5D /* Poppins */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		FA63EAA829C34D8B001BD219 /* Custom Week Header */ = {
+			isa = PBXGroup;
+			children = (
+				FA63EAA929C34DA2001BD219 /* CustomWeekHeader.swift */,
+			);
+			path = "Custom Week Header";
 			sourceTree = "<group>";
 		};
 		FA71B56D29775AAD00252AD8 /* Custom Tab Bar */ = {
@@ -329,6 +341,7 @@
 				FAACB61C2909A00D00CFBCA6 /* FaceIDViewModel.swift */,
 				FAD9672E291190840072C300 /* ChatUserModel.swift */,
 				FA7BBAD8293BD10D00FEACAF /* SignUpViewModals.swift */,
+				FA63EAA629C3451C001BD219 /* WeekViewModel.swift */,
 			);
 			path = ViewModals;
 			sourceTree = "<group>";
@@ -345,6 +358,7 @@
 		FA83815B2904937D007B34AF /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				FA63EAA829C34D8B001BD219 /* Custom Week Header */,
 				FA71B56D29775AAD00252AD8 /* Custom Tab Bar */,
 				FA0F4C12293410E500191ACE /* CheckListProgessView */,
 				FA83815C2904938D007B34AF /* Buttons */,
@@ -574,6 +588,7 @@
 				FA71B56F29775AC000252AD8 /* CustomTabBar.swift in Sources */,
 				FA28E38E29AD3EC3006BEF61 /* EmojiArray.swift in Sources */,
 				FAD9671B291019450072C300 /* CalenderView.swift in Sources */,
+				FA63EAAA29C34DA2001BD219 /* CustomWeekHeader.swift in Sources */,
 				FA83815E290493A6007B34AF /* CheckBoxBtn.swift in Sources */,
 				FA7BBAE1293CF4D300FEACAF /* LoginView.swift in Sources */,
 				FA33A209299D160400C25559 /* MainEmotionLogView.swift in Sources */,
@@ -590,6 +605,7 @@
 				FAD9672229101D5B0072C300 /* CalendarHelper.swift in Sources */,
 				FA83811028F5BD00007B34AF /* MoodView.swift in Sources */,
 				FAD96714291011BD0072C300 /* FirebaseManager.swift in Sources */,
+				FA63EAA729C3451C001BD219 /* WeekViewModel.swift in Sources */,
 				FA71B57529776E9800252AD8 /* MainHomeView.swift in Sources */,
 				FA7BBADB293BEF5E00FEACAF /* SplashScreenView.swift in Sources */,
 				FAD9672D29115B320072C300 /* JournalCellView.swift in Sources */,

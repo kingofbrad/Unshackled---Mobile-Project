@@ -8,6 +8,13 @@
 import Foundation
 
 
+struct EmotionLogViewModel: Identifiable {
+    var id = UUID()
+    let icon: String
+    let text: String
+}
+
+
 struct EmojiArray {
     
     let EmotionBtnArray: [EmotionLogViewModel] =
@@ -31,6 +38,33 @@ struct EmojiArray {
         .init(icon: "sceptic", text: "Dead"),
         .init(icon: "blush", text: "Hopeful"),
         .init(icon: "ill", text: "Unwell"),
+    ]
+    
+    let EmotionArrayHappy: [EmotionLogViewModel] =
+    [
+        .init(icon: "happy", text: "Happy"),
+        .init(icon: "surprise", text: "Shocked"),
+        .init(icon:"smile", text:"Loved"),
+        .init(icon: "happy-2", text: "Excited"),
+        .init(icon: "happy-3 4", text: "Relieved"),
+        .init(icon: "blush", text: "Hopeful")
+    ]
+    
+    let EmotionArraySad: [EmotionLogViewModel] =
+    [
+        .init(icon: "sad-2", text: "Sad"),
+        .init(icon: "sad-3", text: "Angry"),
+        .init(icon: "sad", text: "Upset"),
+        .init(icon: "crying", text: "Teary"),
+        .init(icon: "ill", text: "Unwell"),
+    ]
+
+    let EmojiArrayOther: [EmotionLogViewModel] =
+    [
+        .init(icon: "sceptic", text: "Dead"),
+        .init(icon: "meh", text: "Silenced"),
+        .init(icon: "unsure", text: "Unsure"),
+        
     ]
     
 }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import UIKit
 
 struct Emojis: Identifiable, Hashable {
     var id = UUID()
@@ -15,86 +15,59 @@ struct Emojis: Identifiable, Hashable {
 }
 
 
+
+
 struct MainEmotionLogView: View {
+    
+    var date = Date()
     
     var emojiArray: [Emojis] = [
         .init(image: "happy", section: "Monday" ),
         .init(image: "sad", section: "Tuesday"),
         .init(image: "bored", section: "Wednesday"),
-        .init(image: "smile-2", section: "Thursday")
+        .init(image: "smile-2", section: "Thursday"),
+        .init(image: "smile-2", section: "Friday"),
+        .init(image: "sad", section: "Saturday"),
+        .init(image: "happy", section: "Sunday")
     ]
     
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading){
-                Text("Emotion Log")
-                    .font(.custom("Vidaloka-Regular", size: 40))
-                Text("What have you been up to?")
-                    .font(.custom("Poppins-SemiBold", size: 15))
-                
-                ScrollView() {
-                    ForEach(emojiArray) { emoji in
-                        Section(emoji.section) {
-                            Image(emoji.image)
-                            
-                        }
-                        .frame(maxWidth: .infinity)
-                        
+            VStack{
+                // Begining of Title
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Emotion Log")
+                            .font(.custom("Vidaloka-Regular", size: 40))
+                        Text("What have you been up to?")
+                            .font(.custom("Poppins-SemiBold", size: 15))
                     }
-                    
-                    
+                    Spacer()
+                }
+                .padding(.leading, 30)
+                // End of Title
+                HStack{
+                    ForEach(emojiArray) { array in
+                            Image(array.image)
+                    }
                     
                 }
-                .frame(maxWidth: .infinity, maxHeight: 450)
-                .background(Color.white)
+                Text(Date.tomorrow, style: .date)
                 
-                
-                Section {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            EmojiBtnScrollView(image: "crying") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "smile") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "sceptic") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "meh") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                        }
-                    }
-                    .frame(height: 70)
-                } header: {
-                    HStack {
-                        Text("Activites")
-                        Button {
-                            print("Activies")
-                        } label: {
-                            Image("CalendarIcon")
-                        }
-                        
-                    }
+                Button {
+                    
+                } label: {
+                    Text("Add new emoji")
                 }
+
+                
+                
                 
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("lightpink"))
-            Spacer()
+            
         }
     }
 }
@@ -143,3 +116,23 @@ struct ActivitesBtnScrollView: View {
     }
 }
 
+
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
+    }
+}
