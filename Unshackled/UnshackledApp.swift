@@ -15,7 +15,9 @@ struct UnshackledApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashScreenView()
+            HomeView()
+            
+//            SplashScreenView()
         }
         
        

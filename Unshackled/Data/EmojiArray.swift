@@ -17,7 +17,7 @@ struct EmotionLogViewModel: Identifiable {
 
 struct EmojiArray {
     
-    let EmotionBtnArray: [EmotionLogViewModel] =
+    var EmotionBtnArray: [EmotionLogViewModel] =
     [
         .init(icon: "happy", text: "Happy"),
         .init(icon: "sad-2", text: "Sad"),
@@ -40,7 +40,12 @@ struct EmojiArray {
         .init(icon: "ill", text: "Unwell"),
     ]
     
-    let EmotionArrayHappy: [EmotionLogViewModel] =
+    var EmotionTestArray: [EmotionLogViewModel] =
+    [
+        
+    ]
+    
+    var EmotionArrayHappy: [EmotionLogViewModel] =
     [
         .init(icon: "happy", text: "Happy"),
         .init(icon: "surprise", text: "Shocked"),
@@ -50,7 +55,7 @@ struct EmojiArray {
         .init(icon: "blush", text: "Hopeful")
     ]
     
-    let EmotionArraySad: [EmotionLogViewModel] =
+    var EmotionArraySad: [EmotionLogViewModel] =
     [
         .init(icon: "sad-2", text: "Sad"),
         .init(icon: "sad-3", text: "Angry"),
@@ -59,7 +64,7 @@ struct EmojiArray {
         .init(icon: "ill", text: "Unwell"),
     ]
 
-    let EmojiArrayOther: [EmotionLogViewModel] =
+    var EmojiArrayOther: [EmotionLogViewModel] =
     [
         .init(icon: "sceptic", text: "Dead"),
         .init(icon: "meh", text: "Silenced"),

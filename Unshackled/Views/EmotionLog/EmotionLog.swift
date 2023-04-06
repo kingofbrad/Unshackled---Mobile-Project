@@ -43,7 +43,7 @@ struct EmotionLog: View {
                     .background(Color(.white))
                     .cornerRadius(50)
                     .sheet(isPresented: $moreEmojiToggle) {
-                        MoreEmojis()
+                        MoreEmojis(evm: EmojiViewModel())
                     }
                 }
             } header: {
@@ -63,36 +63,23 @@ struct EmotionLog_Previews: PreviewProvider {
 
 struct MoreEmojis_Preview: PreviewProvider {
     static var previews: some View {
-        MoreEmojis()    }
+        MoreEmojis(evm: EmojiViewModel())
+        
+    }
 }
 
 struct MoreEmojis: View {
+    @ObservedObject var evm: EmojiViewModel
     
-    var emojiArray = EmojiArray()
+    @State private var text: String = "Shocked"
+    @State private var mood: String = "happy-2"
     
     var body: some View {
         VStack {
             
-            HStack{
-                ForEach(emojiArray.EmotionArrayHappy) { emoji in
-                    EmotionBtn(icon: emoji.icon, text: emoji.text) {
-                        print(emoji.text)
-                    }
-                }
-            }
-            HStack{
-                ForEach(emojiArray.EmotionArraySad) { emoji in
-                    EmotionBtn(icon: emoji.icon, text: emoji.text) {
-                        print(emoji.text)
-                    }
-                }
-            }
-            HStack{
-                ForEach(emojiArray.EmotionArrayOther) { emoji in
-                    EmotionBtn(icon: emoji.icon, text: emoji.text) {
-                        print(emoji.text)
-                    }
-                }
+            
+            EmotionBtn(icon: "happy-2", text: "Shocked") {
+                evm.handleAddEntry(text: text, mood: mood)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

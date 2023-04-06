@@ -340,8 +340,8 @@
 			children = (
 				FAACB61C2909A00D00CFBCA6 /* FaceIDViewModel.swift */,
 				FAD9672E291190840072C300 /* ChatUserModel.swift */,
-				FA7BBAD8293BD10D00FEACAF /* SignUpViewModals.swift */,
 				FA63EAA629C3451C001BD219 /* WeekViewModel.swift */,
+				FA7BBAD8293BD10D00FEACAF /* SignUpViewModals.swift */,
 			);
 			path = ViewModals;
 			sourceTree = "<group>";
