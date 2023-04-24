@@ -15,9 +15,9 @@ struct SignUpFinalScreenView: View {
     }
     func prevBtnPressed() {
        print("Skip Button Pressed")
-        SignUpVM.isUserLoggedIn = true
+        ovm.loginBool = true
     }
-    @State private var SignUpVM = SignUpViewModal()
+    @ObservedObject var ovm = onBoardingViewModel()
     
     var body: some View {
             VStack(alignment: .leading){
@@ -27,7 +27,6 @@ struct SignUpFinalScreenView: View {
                 VStack {
                     
                     
-                    CheckListProgressView(isChecked: false, isChecked1: false, isChecked2: false, isChecked3: true)
                     Image("PersonOnSofa")
                     Text("We have some awesome features we would love to show you, OK?")
                         .font(.custom("Poppins-Medium", size: 17))
@@ -36,7 +35,7 @@ struct SignUpFinalScreenView: View {
                         
                     
                     HStack {
-                        NavigationLink(destination: HomeView(), isActive: $SignUpVM.isUserLoggedIn) {
+                        NavigationLink(destination: HomeView(), isActive: $ovm.loginBool) {
                             CustomButtonPrev(text: "Skip", clicked: prevBtnPressed)
                         }
                         

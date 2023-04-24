@@ -12,6 +12,7 @@ enum Tabs: Int {
     case planner = 1
     case chats = 2
     case sos = 3
+    case profile = 4
 }
 
 
@@ -40,6 +41,11 @@ struct CustomTabBar: View {
             } label: {
                 TabBarButton(buttonText: "SOS", seletectedImage: "SelectedSOS", image: "SOS", isActive: selectedTab == .sos)
             }
+            Button {
+                selectedTab = .profile
+            } label: {
+                TabBarButton(buttonText: "Profile", seletectedImage: "Profile", image: "Profile", isActive: selectedTab == .profile)
+            }
         
             
             
@@ -47,7 +53,6 @@ struct CustomTabBar: View {
         }
         .frame(height:82)
         .padding(.horizontal, 30)
-        .background(Color.white)
         .cornerRadius(10)
     }
     

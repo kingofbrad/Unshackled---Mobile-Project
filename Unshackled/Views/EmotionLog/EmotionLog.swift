@@ -12,6 +12,8 @@ import SwiftUI
 
 struct EmotionLog: View {
     var emojiArray = EmojiArray()
+    @ObservedObject var evm: EmojiViewModel
+    
     
     @State var moreEmojiToggle: Bool = false
     var body: some View {
@@ -20,7 +22,8 @@ struct EmotionLog: View {
                 HStack {
                     ForEach(emojiArray.EmotionBtnArray.prefix(5)) { item in
                         EmotionBtn(icon: item.icon, text: item.text, isTextUsed: true) {
-                            print("happy")
+                            evm.handleAddEntry(text: item.text, mood: item.icon)
+                            print("Emoji Added")
                         }
                     }
                     Button {
@@ -35,7 +38,7 @@ struct EmotionLog: View {
                                 .foregroundColor(.black)
                         }
                         .frame(width:100, height: 100)
-                        .background(Color(moreEmojiToggle ? "VistaWhite" : "White"))
+                        .background(Color(moreEmojiToggle ? "VistaWhite" : "White" ))
                         .cornerRadius(50)
                     }
                     .frame(width: 35, height: 35)
@@ -55,7 +58,7 @@ struct EmotionLog: View {
 
 struct EmotionLog_Previews: PreviewProvider {
     static var previews: some View {
-        EmotionLog()
+        EmotionLog(evm: EmojiViewModel())
     }
 }
 
@@ -104,7 +107,7 @@ struct EmotionBtn: View {
                     .font(.system(size: 12))
             }
             .frame(width:100, height: 100)
-            .background(Color("White"))
+            .background(.white)
             .cornerRadius(50)
         }
         .frame(width: 35, height: 35)

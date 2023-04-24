@@ -6,26 +6,19 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseAuth
+
 
 struct ProfileView: View {
-    let user = Auth.auth().currentUser
-    @ObservedObject private var vm = MainMessagesViewModel()
 
     
     var body: some View {
         VStack{
-            Text((user?.email)!)
-            
-            Button {
-                vm.handleSignOut()
-            } label: {
-                Text("Sign Out")
-                    .font(.system(size: 30, weight: .bold))
-            }
-            
+            Text("Bradlee King")
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color("lightpink"))
+        
+        
     }
 }
 

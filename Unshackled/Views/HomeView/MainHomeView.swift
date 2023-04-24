@@ -29,23 +29,26 @@ struct MainHomeView: View {
                         .lineSpacing(3)
                         .tracking(4)
                 }
-                EmotionLog()
+                EmotionLog(evm: EmojiViewModel())
 
                 
             }
             .ignoresSafeArea()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color("lightpink"))
+            
         }
         
     }
     var greetingSection: some View {
-        VStack(alignment: .leading) {
-            Text("Morning,")
-                .font(.custom("Vidaloka-Regular", size: 40))
-            Text("How are you today?")
-                .font(.custom("Poppins-SemiBold", size: 15))
-        }
+            VStack(alignment: .leading) {
+                Text("Morning,")
+                    .font(.custom("Vidaloka-Regular", size: 40))
+                Text("How are you today?")
+                    .font(.custom("Poppins-SemiBold", size: 15))
+            }
+        
+        
     }
     
     

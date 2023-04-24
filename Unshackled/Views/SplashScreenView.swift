@@ -43,7 +43,7 @@ struct SplashScreenView: View {
                 }
             }
         } else {
-            SignUpView()
+            MainOnBoardingView(vm: SignUpViewModal())
         }
     }
 }

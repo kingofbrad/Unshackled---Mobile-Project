@@ -7,44 +7,66 @@
 
 import Foundation
 
-struct SignUpViewModal {
+class SignUpViewModal: ObservableObject {
+    
+    
+    
+    
+     var toLogin: Bool = false
+    
 //    SignUpAndLoginViewToggle Boolan
     var UserSignInToggle: Bool = false
     
     
 //    sign up page 1
-    var email = ""
-    var password = ""
+    var email: String = ""
+    var password: String = ""
     var nextStepview: Bool = false
+    var name: String = ""
     
-//    sign up page 2
-    var name = ""
-    var dobDay = ""
-    var dobMonth = ""
-    var dobYear = ""
-    var location = ""
+//   Date of Birth Section
+    
+    var dobDay: String = ""
+    var dobMonth: String = ""
+    var dobYear: String = ""
+    var location: String = ""
+    
+   
+    
+    
+    
+    
+   
+    
+    
 
 //    sign up page 3
     
-    var mobileNumber = ""
-    var verificationCode = ""
+    var mobileNumber: String = ""
+    var verificationCode: String = ""
     
 //    Login
-    var isSecured: Bool = false
-    var isUserLoggedIn: Bool = false
+   
+    
     
     
 //    logic for sign up progress
-    var finalViewToggle = false
-    var CheckBoxToggle = false
-    var CheckBoxToggle1 = false
-    var createAccountProgress = false
-    var showErrorMessage = false
+    var finalViewToggle: Bool = false
+    var CheckBoxToggle: Bool = false
+    var CheckBoxToggle1: Bool = false
+    var createAccountProgress: Bool = false
+    var showErrorMessage: Bool = false
     
-    var errorMessage = ""
+    var errorMessage: String = ""
+    
+    var onBoarding:Int = 1
+    
+    
     
     
     
     
 }
+
+
 
