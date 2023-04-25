@@ -70,7 +70,7 @@ class onBoardingViewModel: ObservableObject {
 
 struct MainOnBoardingView: View {
     @ObservedObject var vm = SignUpViewModal()
-    
+    @StateObject var ovm: onBoardingViewModel
     @State var email: String = ""
     
    
@@ -78,39 +78,43 @@ struct MainOnBoardingView: View {
     @State var selectedTab: ProgressTabs = .checked
     
     var body: some View {
-        
-        ZStack {
-            Group {
-                HStack {
-                    Text("Let's create an account for you")
-                        .font(.custom("Vidaloka-Regular", size: 40))
-                        .frame(width: 270)
-                        .padding(.top, -30)
+            ZStack {
+                
+                if(selectedTab == .checked3) {
                     
+                } else {
+                    Group {
+                        HStack {
+                            Text("Let's create an account for you")
+                                .font(.custom("Vidaloka-Regular", size: 40))
+                                .frame(width: 270)
+                                .padding(.top, -30)
+                            
+                        }
+                        .offset(x: -50, y: -300)
+                        .padding(.vertical, 45)
+                        RoundedRectangle(cornerRadius: 73)
+                            .foregroundColor(Color("lightpink"))
+                            .frame(width: 600, height: 400)
+                            .offset(x: -85, y: -410)
+                            .zIndex(-1)
+                    }
                 }
-                .offset(x: -50, y: -300)
-                .padding(.vertical, 45)
-                RoundedRectangle(cornerRadius: 73)
-                    .foregroundColor(Color("lightpink"))
-                    .frame(width: 600, height: 400)
-                    .offset(x: -85, y: -410)
-                    .zIndex(-1)
+                
+                
+                ProgressBar(selectedTab: $selectedTab)
+                
+                switch selectedTab {
+                case .checked:
+                    Page0(selectedTab: $selectedTab)
+                case .checked1:
+                    Page1(vm: vm , selectedTab: $selectedTab)
+                case .checked2:
+                    Page2(selectedTab: $selectedTab, vm: vm)
+                case .checked3:
+                    Page3(selectedTab: $selectedTab, vm:vm, ovm: ovm, avm: AuthenticationViewModel())
+                }
             }
-            ProgressBar(selectedTab: $selectedTab)
-            
-            switch selectedTab {
-            case .checked:
-                Page0(selectedTab: $selectedTab, vm: vm)
-            case .checked1:
-                Page1(vm: vm , selectedTab: $selectedTab)
-            case .checked2:
-                Page2(selectedTab: $selectedTab, vm: vm)
-            case .checked3:
-                Page3(selectedTab: $selectedTab, vm:vm)
-            }
-        }
-        
-        
     }
     
 }
@@ -136,13 +140,13 @@ struct ProgressBar: View {
 
 struct MainOnBoardingView_Previews: PreviewProvider {
     static var previews: some View {
-        MainOnBoardingView(vm: SignUpViewModal())
+        MainOnBoardingView(vm: SignUpViewModal(), ovm: onBoardingViewModel())
     }
 }
 struct Page0: View {
     @Binding var selectedTab: ProgressTabs
     
-    @StateObject var vm: SignUpViewModal
+    
     @StateObject var ovm = onBoardingViewModel()
     @State var toLogin: Bool = false
     
@@ -228,7 +232,7 @@ struct Page0: View {
             }
             
             Button {
-                vm.nextStepview = true
+                print("Sign up with Google")
             } label: {
                 Label("Sign Up with Google", image: "GoogleIcon")
                     .frame(width: 340, height: 50)
@@ -264,7 +268,7 @@ struct Page0: View {
                 .font(.custom("Poppins-Bold", size: 17))
             }
             .fullScreenCover(isPresented: $toLogin) {
-                LoginView(ovm: onBoardingViewModel())
+                loginViewNew(toLogin: $toLogin )
             }
             
             
@@ -501,13 +505,54 @@ struct Page2: View {
 struct Page3: View {
     @Binding var selectedTab: ProgressTabs
     @ObservedObject var vm: SignUpViewModal
+    @StateObject var ovm: onBoardingViewModel
+    
+    @AppStorage("onBoardingValue") private var onBoardingComplete: Bool = false
+    
+    @StateObject var avm: AuthenticationViewModel
+    func nextBtnPressed() {
+        if onBoardingComplete == true {
+            avm.onBoardingState = .yes
+        }
+    }
+    func prevBtnPressed() {
+       print("Skip Button Pressed")
+        ovm.loginBool = true
+    }
+    
     var body: some View {
         VStack {
-            
+            VStack(alignment: .leading){
+                Text("You’ve successfully created your account")
+                    .font(.custom("Vidaloka-Regular", size: 40))
+                    .frame(width: 300)
+                    .offset(y: -100)
+                VStack {
+                    
+                    
+                    Image("PersonOnSofa")
+                    Text("We have some awesome features we would love to show you, OK?")
+                        .font(.custom("Poppins-Medium", size: 17))
+                        .frame(width: 320)
+                        .padding(.bottom, 30)
+                        
+                    
+                    HStack {
+                        NavigationLink(destination: HomeView(), isActive: $ovm.loginBool) {
+                            CustomButtonPrev(text: "Skip", clicked: prevBtnPressed)
+                        }
+                        
+                        CustomButtonNext(text: "Let's go", clicked: nextBtnPressed )
+                    }
+                    
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("lightpink"))
+        .ignoresSafeArea(.all)
         }
     }
 }
-
 
 
 struct CheckBox: View {

@@ -26,7 +26,7 @@ struct HomeView: View {
             case .sos:
                 MoodView()
             case .profile:
-                ProfileView()
+                ProfileView(avm: AuthenticationViewModel())
             }
             CustomTabBar(selectedTab: $selectedTab)
         }

@@ -143,25 +143,7 @@ struct SignUpButtonStyle: ButtonStyle {
 }
 
 
-struct onboardingLowerTextView: View {
-    
-    var body: some View {
-        Button {
-            
-        } label: {
-            HStack {
-                Text("Not a member?")
-                    .foregroundColor(Color(.init(white: 0, alpha: 0.34)))
-                    .font(.custom("Poppins-Medium", size: 17))
-                Text("Sign up")
-                    .foregroundColor(Color("DarkTurquoise"))
-                    .font(.custom("Poppins-Bold", size: 17))
-                    
-            }
-            
-        }
-    }
-}
+
 
 struct CustomButtonComp_Previews: PreviewProvider {
     static var previews: some View {

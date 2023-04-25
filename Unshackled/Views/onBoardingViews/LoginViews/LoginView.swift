@@ -168,7 +168,7 @@ struct LoginView_Previews: PreviewProvider {
 
 struct LoginViewNew_Previews: PreviewProvider {
     static var previews: some View {
-        loginViewNew()
+        loginViewNew(toLogin: .constant(false))
     }
 }
 
@@ -176,6 +176,7 @@ struct loginViewNew: View {
     @State var email: String = ""
     @State var password: String = ""
     @StateObject var ovm = onBoardingViewModel()
+    @Binding var toLogin: Bool
     var body: some View {
         ZStack {
             Group {
@@ -196,7 +197,7 @@ struct loginViewNew: View {
             }
             VStack(spacing: 40) {
                 inputFieldView(email: $email, password: $password, ovm: ovm)
-                onboardingLowerTextView()
+                onboardingLowerTextView(toLogin: $toLogin)
                 buttonView
             }
             .offset(y: 80)
@@ -288,6 +289,25 @@ struct inputFieldView: View {
     }
 }
 
+struct onboardingLowerTextView: View {
+    @Binding var toLogin: Bool
+    var body: some View {
+        Button {
+            toLogin = false
+        } label: {
+            HStack {
+                Text("Not a member?")
+                    .foregroundColor(Color(.init(white: 0, alpha: 0.34)))
+                    .font(.custom("Poppins-Medium", size: 17))
+                Text("Sign up")
+                    .foregroundColor(Color("DarkTurquoise"))
+                    .font(.custom("Poppins-Bold", size: 17))
+                    
+            }
+            
+        }
+    }
+}
 
 
 
