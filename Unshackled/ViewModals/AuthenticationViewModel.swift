@@ -23,7 +23,7 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     @Published var state: signInState = .signedOut
-    @Published var onBoardingState: onBoardingComplete = .no
+    @Published var onBoardingState: onBoardingComplete = .yes
     
     
     
