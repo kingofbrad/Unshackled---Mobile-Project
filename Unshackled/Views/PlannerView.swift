@@ -49,7 +49,9 @@ struct PlannerView: View {
                     VStack(spacing: 10) {
 
                         
-                        NavigationLink(destination: MainEmotionLogView()) {
+                        NavigationLink(destination: MainEmotionLogView(evm:EmojiViewModel()
+                                                                      
+                                                                      )) {
                             NavLinkLabel(title: "Emotion Log", content: "Keep track of your emotions by selecting the face that best represents how you're feeling.", blob: "EmotionLogBlob", icon: "EmotionLogIcon")
                         }
                         

@@ -6,62 +6,41 @@
 //
 
 import SwiftUI
+import UIKit
+import Firebase
 
-var emojis = ["happy", "crying", "smile", "sceptic", "meh"]
+
+
+
+
 
 struct MainEmotionLogView: View {
+    @ObservedObject var evm: EmojiViewModel
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading){
-                Text("Emotion Log")
-                    .font(.custom("Vidaloka-Regular", size: 40))
-                Text("What have you been up to?")
-                    .font(.custom("Poppins-SemiBold", size: 15))
-                
-                Section {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            EmojiBtnScrollView(image: "crying") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "smile") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "sceptic") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "meh") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                            EmojiBtnScrollView(image: "happy") {
-                                print("Happy pressed")
-                            }
-                        }
+            VStack{
+                // Begining of Title
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Emotion Log")
+                            .font(.custom("Vidaloka-Regular", size: 40))
+                        Text("What have you been up to?")
+                            .font(.custom("Poppins-SemiBold", size: 15))
                     }
-                    .frame(height: 70)
-                } header: {
-                    HStack {
-                        Text("Activites")
-                        Button {
-                            print("Activies")
-                        } label: {
-                            Image("CalendarIcon")
-                        }
+                    Spacer()
+                }
+                .padding(.leading, 30)
+                HStack(spacing: -20) {
+                    ForEach(evm.emoji) { emoji in
+                        moodDataView(emoji: emoji, evm: EmojiViewModel())
                         
                     }
                 }
                 
             }
-            Spacer()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("lightpink"))
+            
         }
     }
 }
@@ -78,7 +57,7 @@ struct ActiviesScrollView: View {
 
 struct MainEmotionLogView_Previews: PreviewProvider {
     static var previews: some View {
-        MainEmotionLogView()
+        MainEmotionLogView(evm:EmojiViewModel())
     }
 }
 
@@ -106,6 +85,34 @@ struct ActivitesBtnScrollView: View {
                 Image(image)
                 Text(text)
             }
+        }
+    }
+}
+
+
+struct moodDataView: View {
+    let emoji: Emojis
+    @ObservedObject var evm: EmojiViewModel
+    @State private var isAddJournalOpen: Bool = false
+    var body: some View {
+        VStack {
+            if emoji.fromId == FirebaseManager.shared.auth.currentUser?.uid {
+                if !evm.NoEntryfound {
+                    VStack {
+                        EmotionBtn(icon: emoji.mood, text: emoji.text) {
+                            print("")
+                        }
+                    }
+                    .padding(.horizontal)
+                    
+                } else {
+                    VStack{
+                        Text("Please add a new entry")
+                    }
+                }
+                
+            }
+           
         }
     }
 }

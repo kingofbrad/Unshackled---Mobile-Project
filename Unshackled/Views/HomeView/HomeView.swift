@@ -13,25 +13,25 @@ struct HomeView: View {
     @State private var UserLoggedOut = false
     @State var selectedTab: Tabs = .home
     @State private var togglesheet = false
+  
     var body: some View {
         VStack{
-            if selectedTab == .home {
+            switch selectedTab {
+            case .home:
                 MainHomeView()
-            } else if selectedTab == .planner {
+            case .planner:
                 PlannerView()
-            } else if selectedTab == .chats {
+            case .chats:
                 MainMessagesView()
-            } else if selectedTab == .sos {
+            case .sos:
                 MoodView()
+            case .profile:
+                ProfileView(avm: AuthenticationViewModel())
             }
             CustomTabBar(selectedTab: $selectedTab)
         }
-        .background(Color("lightpink"))
-        .zIndex(10)
-        
+            .background(Color("lightpink"))
     }
-    
-    
 }
 
 struct HomeView_Previews: PreviewProvider {

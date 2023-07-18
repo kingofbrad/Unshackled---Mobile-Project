@@ -7,15 +7,55 @@
 
 import SwiftUI
 
-struct CheckListProgressView: View {
-    @State var isChecked: Bool
-    @State  var isChecked1: Bool
-    @State  var isChecked2: Bool
-    @State  var isChecked3: Bool
-    
+
+enum ProgressTabs: Int {
+    case checked = 0
+    case checked1 = 1
+    case checked2 = 2
+    case checked3 = 3
+}
+
+
+
+
+struct Checked: View {
     var body: some View {
-        if isChecked {
-            HStack(spacing: -0.4){
+        HStack(spacing: -0.4){
+            Circle()
+                .foregroundColor(Color("lightTurquoise"))
+                .frame(width: 40)
+            Rectangle()
+                .foregroundColor(Color("lightpink"))
+                .frame(width: 50, height: 10)
+            Circle()
+                .foregroundColor(Color("lightpink"))
+                .frame(width: 40)
+            Rectangle()
+                .foregroundColor(Color("lightpink"))
+                .frame(width: 50, height: 10)
+            Circle()
+                .foregroundColor(Color("lightpink"))
+                .frame(width: 40)
+        }
+        .onAppear {
+            
+        }
+    }
+}
+
+struct Checked1: View {
+    var body: some View {
+        HStack(spacing: -0.4){
+                Image(systemName: "checkmark")
+                  .resizable()
+                  .frame(width: 20, height: 20)
+                  .foregroundColor(.black)
+                  .padding(10)
+                  .background(Color("lightTurquoise"))
+                  .clipShape(Circle())
+                Rectangle()
+                    .foregroundColor(Color("lightTurquoise"))
+                    .frame(width: 50, height: 10)
                 Circle()
                     .foregroundColor(Color("lightTurquoise"))
                     .frame(width: 40)
@@ -25,100 +65,73 @@ struct CheckListProgressView: View {
                 Circle()
                     .foregroundColor(Color("lightpink"))
                     .frame(width: 40)
-                Rectangle()
-                    .foregroundColor(Color("lightpink"))
-                    .frame(width: 50, height: 10)
-                Circle()
-                    .foregroundColor(Color("lightpink"))
-                    .frame(width: 40)
-            }
-        } else if isChecked1 {
-            HStack(spacing: -0.4){
-                    Image(systemName: "checkmark")
-                      .resizable()
-                      .frame(width: 20, height: 20)
-                      .foregroundColor(.black)
-                      .padding(10)
-                      .background(Color("lightTurquoise"))
-                      .clipShape(Circle())
-                    Rectangle()
-                        .foregroundColor(Color("lightTurquoise"))
-                        .frame(width: 50, height: 10)
-                    Circle()
-                        .foregroundColor(Color("lightTurquoise"))
-                        .frame(width: 40)
-                    Rectangle()
-                        .foregroundColor(Color("lightpink"))
-                        .frame(width: 50, height: 10)
-                    Circle()
-                        .foregroundColor(Color("lightpink"))
-                        .frame(width: 40)
-            }
-            .padding(.bottom, 30)
-        } else if isChecked2 {
-            HStack(spacing: -0.4){
-                    Image(systemName: "checkmark")
-                      .resizable()
-                      .frame(width: 20, height: 20)
-                      .foregroundColor(.black)
-                      .padding(10)
-                      .background(Color("lightTurquoise"))
-                      .clipShape(Circle())
-                    Rectangle()
-                        .foregroundColor(Color("lightTurquoise"))
-                        .frame(width: 50, height: 10)
-                    Image(systemName: "checkmark")
-                      .resizable()
-                      .frame(width: 20, height: 20)
-                      .foregroundColor(.black)
-                      .padding(10)
-                      .background(Color("lightTurquoise"))
-                      .clipShape(Circle())
-                    Rectangle()
-                        .foregroundColor(Color("lightTurquoise"))
-                        .frame(width: 50, height: 10)
-                    Circle()
-                        .foregroundColor(Color("lightTurquoise"))
-                        .frame(width: 40)
-            }
-            .padding(.bottom, 30)
-        } else if isChecked3 {
-            HStack(spacing: -0.4){
-                    Image(systemName: "checkmark")
-                      .resizable()
-                      .frame(width: 20, height: 20)
-                      .foregroundColor(.black)
-                      .padding(10)
-                      .background(Color("lightTurquoise"))
-                      .clipShape(Circle())
-                    Rectangle()
-                        .foregroundColor(Color("lightTurquoise"))
-                        .frame(width: 50, height: 10)
-                    Image(systemName: "checkmark")
-                      .resizable()
-                      .frame(width: 20, height: 20)
-                      .foregroundColor(.black)
-                      .padding(10)
-                      .background(Color("lightTurquoise"))
-                      .clipShape(Circle())
-                    Rectangle()
-                        .foregroundColor(Color("lightTurquoise"))
-                        .frame(width: 50, height: 10)
-                    Image(systemName: "checkmark")
-                      .resizable()
-                      .frame(width: 20, height: 20)
-                      .foregroundColor(.black)
-                      .padding(10)
-                      .background(Color("lightTurquoise"))
-                      .clipShape(Circle())
-            }
-            .padding(.bottom, 30)
         }
     }
 }
 
-struct CheckListProgressVIew_Previews: PreviewProvider {
-    static var previews: some View {
-        CheckListProgressView(isChecked: true,isChecked1: false, isChecked2: false, isChecked3: false)
+struct Checked2: View {
+    var body: some View {
+        HStack(spacing: -0.4){
+                Image(systemName: "checkmark")
+                  .resizable()
+                  .frame(width: 20, height: 20)
+                  .foregroundColor(.black)
+                  .padding(10)
+                  .background(Color("lightTurquoise"))
+                  .clipShape(Circle())
+                Rectangle()
+                    .foregroundColor(Color("lightTurquoise"))
+                    .frame(width: 50, height: 10)
+                Image(systemName: "checkmark")
+                  .resizable()
+                  .frame(width: 20, height: 20)
+                  .foregroundColor(.black)
+                  .padding(10)
+                  .background(Color("lightTurquoise"))
+                  .clipShape(Circle())
+                Rectangle()
+                    .foregroundColor(Color("lightTurquoise"))
+                    .frame(width: 50, height: 10)
+                Circle()
+                    .foregroundColor(Color("lightTurquoise"))
+                    .frame(width: 40)
+        }
+        
     }
 }
+
+struct Checked3: View{
+    var body: some View {
+        HStack(spacing: -0.4){
+                Image(systemName: "checkmark")
+                  .resizable()
+                  .frame(width: 20, height: 20)
+                  .foregroundColor(.black)
+                  .padding(10)
+                  .background(Color("lightTurquoise"))
+                  .clipShape(Circle())
+                Rectangle()
+                    .foregroundColor(Color("lightTurquoise"))
+                    .frame(width: 50, height: 10)
+                Image(systemName: "checkmark")
+                  .resizable()
+                  .frame(width: 20, height: 20)
+                  .foregroundColor(.black)
+                  .padding(10)
+                  .background(Color("lightTurquoise"))
+                  .clipShape(Circle())
+                Rectangle()
+                    .foregroundColor(Color("lightTurquoise"))
+                    .frame(width: 50, height: 10)
+                Image(systemName: "checkmark")
+                  .resizable()
+                  .frame(width: 20, height: 20)
+                  .foregroundColor(.black)
+                  .padding(10)
+                  .background(Color("lightTurquoise"))
+                  .clipShape(Circle())
+        }
+    }
+}
+
+

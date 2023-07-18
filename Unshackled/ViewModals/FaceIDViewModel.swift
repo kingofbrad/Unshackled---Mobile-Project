@@ -5,23 +5,25 @@ import LocalAuthentication
 class AppContext: ObservableObject {
     @Published var appUnlocked = false
     @Published var authorizationError: Error?
+    @Published var showingSheet = false
     
     func requestBiometricUnlock() {
         let context = LAContext()
+        var error: NSError?
         
-        var error: NSError? = nil
-        
-        let canEvaluate = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
-        
-        if canEvaluate {
-            if context.biometryType != .none {
-                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "To access your data") { (success, error) in
-                    DispatchQueue.main.async {
-                        self.appUnlocked = success
-                        self.authorizationError = error
-                    }
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We need to unlock your data"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authorizationError in
+                if success {
+                    self.appUnlocked = true
+                } else{
+                    print(error?.localizedDescription)
                 }
             }
+        } else {
+            // No Biometrics
         }
+        
     }
 }

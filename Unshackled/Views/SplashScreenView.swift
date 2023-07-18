@@ -12,6 +12,9 @@ struct SplashScreenView: View {
     @State private var opacity = 0.5
     @State private var isActive: Bool = false
     
+    @StateObject var avm = AuthenticationViewModel()
+    
+    
     var body: some View {
         if !isActive {
             VStack {
@@ -43,7 +46,14 @@ struct SplashScreenView: View {
                 }
             }
         } else {
-            SignUpView()
+            
+            if avm.onBoardingState == .yes {
+                passCodeView()
+            } else {
+                MainOnBoardingView(vm: SignUpViewModal(), ovm: onBoardingViewModel())
+            }
+            
+            
         }
     }
 }
